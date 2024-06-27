@@ -4,11 +4,27 @@ Forked from https://github.com/mariohmol/ng-brazil
 
 Contains pipes / directives / validators / mask for brazillian like apps
 
-Supports: Angular15 to Angular18
+Supports: Angular 15 to Angular 18
 
-## Live example:  
+## Installing:  
 
-* https://stackblitz.com/edit/ngx-brazil
+* Angular version 18.x.x
+
+` npm install --save ngx-brazil@18.0.0 js-brasil`
+
+* Angular version 17.x.x
+
+` npm install --save ngx-brazil@17.0.0 js-brasil`
+
+* Angular version 16.x.x
+
+` npm install --save ngx-brazil@16.0.0 js-brasil`
+
+* Angular version 15.x.x
+
+` npm install --save ngx-brazil@15.0.0 js-brasil`
+
+
 
 This project was tested integrated with the following techs:
 
@@ -37,15 +53,6 @@ See the demo working project:
 
 
 ![Demo Image](/src/assets/print.png)
-
-
-## Installation
-
-To install this library with npm, run:
-
-` npm install --save ngx-brazil js-brasil`
-
-
 
  
 ## Usage
@@ -76,19 +83,22 @@ export class AppModule { }
 
 If you would like to use masks install the module: 
 
-`npm i -S angular2-text-mask text-mask-addons`
+`npm i -S ngx-mask`
 
 
 And import to your main app:
 
 ```ts
-import { TextMaskModule } from 'angular2-text-mask';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask, IConfig } from 'ngx-mask';
+
+export const maskConfig: Partial<IConfig> = { };
 
 imports: [
     ....,
-    TextMaskModule,
+    NgxMaskDirective, NgxMaskPipe,
     NgxBrazil
-  ], 
+  ],
+  providers: [provideNgxMask()]
 ```
 
 
@@ -173,10 +183,9 @@ Demo Project:
 
 Reference projects:
 
+* https://github.com/thivalente/ngx-brazil
 * https://github.com/mariohmol/ng-brazil
 * https://github.com/mariohmol/js-brasil
-* https://github.com/yuyang041060120/ng2-validation
-* https://github.com/text-mask/text-mask
 
 
 # TODO

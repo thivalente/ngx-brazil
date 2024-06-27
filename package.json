@@ -1,6 +1,6 @@
 {
   "name": "ngx-brazil",
-  "version": "1.0.0",
+  "version": "15.0.0",
   "type": "commonjs",
   "private": true,
   "license": "MIT",
@@ -31,7 +31,7 @@
     "@angular/router": "15.2.10",
     "autoprefixer": "^10.2.3",
     "core-js": "^3.6.4",
-    "js-brasil": "2.5.3",
+    "js-brasil": "2.6.1",
     "postcss": "^8.2.4",
     "rxjs": "*",
     "rxjs-compat": "^6.0.0",
