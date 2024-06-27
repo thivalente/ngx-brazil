@@ -129,7 +129,7 @@ export const TextMask = {
   TextMaskModule
 };
 
-export const NgBrazilValidators: any = {
+export const NgxBrazilValidators: any = {
   cpf,
   cnpj,
   celular,
@@ -226,13 +226,13 @@ export const NgBrDirectives = {
     CustomDirectives, FormsModule, ReactiveFormsModule
   ]
 })
-class NgBrazil {
-  public static forRoot(): ModuleWithProviders<NgBrazil> {
+class NgxBrazil {
+  public static forRoot(): ModuleWithProviders<NgxBrazil> {
     return {
-      ngModule: NgBrazil
+      ngModule: NgxBrazil
     };
   }
 }
 export {
-  NgBrazil
+  NgxBrazil
 }

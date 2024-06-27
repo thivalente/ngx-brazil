@@ -1,15 +1,14 @@
-# Ng-Brazil
+# Ngx-Brazil
 
+Forked from https://github.com/mariohmol/ng-brazil
 
 Contains pipes / directives / validators / mask for brazillian like apps
 
-[![Build Status](https://travis-ci.org/mariohmol/ng-brazil.svg?branch=master)](https://travis-ci.org/mariohmol/ng-brazil)
-
-Supports: Angular2 to Angular9
+Supports: Angular15 to Angular18
 
 ## Live example:  
 
-* https://stackblitz.com/edit/ng-brazil
+* https://stackblitz.com/edit/ngx-brazil
 
 This project was tested integrated with the following techs:
 
@@ -44,7 +43,7 @@ See the demo working project:
 
 To install this library with npm, run:
 
-` npm install --save ng-brazil js-brasil`
+` npm install --save ngx-brazil js-brasil`
 
 
 
@@ -56,7 +55,7 @@ To install this library with npm, run:
 Import module in root
 
 ```ts
-import { NgBrazil } from 'ng-brazil' 
+import { NgxBrazil } from 'ngx-brazil' 
 
 @NgModule({
   declarations: [
@@ -64,7 +63,7 @@ import { NgBrazil } from 'ng-brazil'
   ],
   imports: [
     ....,
-    NgBrazil
+    NgxBrazil
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -88,7 +87,7 @@ import { TextMaskModule } from 'angular2-text-mask';
 imports: [
     ....,
     TextMaskModule,
-    NgBrazil
+    NgxBrazil
   ], 
 ```
 
@@ -97,7 +96,7 @@ Then setup your component:
 
 ```ts
 import { Component } from '@angular/core';
-import { MASKS, NgBrazilValidators } from 'ng-brazil';
+import { MASKS, NgxBrazilValidators } from 'ngx-brazil';
 
 @Component({
   selector: 'app-root',
@@ -110,12 +109,12 @@ export class AppComponent {
   constructor() { 
     this.formFields = {
       estado: [''],
-      cpf: ['', [<any>Validators.required, <any>NgBrazilValidators.cpf]],
-      cnpj: ['', [<any>Validators.required, <any>NgBrazilValidators.cnpj]],
-      rg: ['', [<any>Validators.required, <any>NgBrazilValidators.rg]],
-      cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]],
-      telefone: ['', [<any>Validators.required, <any>NgBrazilValidators.telefone]],
-      inscricaoestadual: ['', [<any>Validators.required, <any>NgBrazilValidators.inscricaoestadual(this.estado)]]
+      cpf: ['', [<any>Validators.required, <any>NgxBrazilValidators.cpf]],
+      cnpj: ['', [<any>Validators.required, <any>NgxBrazilValidators.cnpj]],
+      rg: ['', [<any>Validators.required, <any>NgxBrazilValidators.rg]],
+      cep: ['', [<any>Validators.required, <any>NgxBrazilValidators.cep]],
+      telefone: ['', [<any>Validators.required, <any>NgxBrazilValidators.telefone]],
+      inscricaoestadual: ['', [<any>Validators.required, <any>NgxBrazilValidators.inscricaoestadual(this.estado)]]
     };
     this.form = this.fb.group(this.formFields);
   }
@@ -144,12 +143,13 @@ RG: From MG10111222 to {{'MG10111222' | rg}} <br/>
 Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadual: 'mg'}} <br/>
 Telefone: From 3199998888 to {{'3199998888' | telefone}} <br/>
 Number: From 123.23 to {{'123.23' | numberBrazil}} <br/>
+Number sem decimais: From 123.23 to {{'123.23' | numberBrazil: 0}} <br/>
 Currency: From 123.23 to {{'123.23' | currencyBrazil}} <br/>
 ```
 
 ```ts
 import { Component } from '@angular/core';
-import { NgBrDirectives } from 'ng-brazil';
+import { NgBrDirectives } from 'ngx-brazil';
 
 @Component({
   selector: 'app-root',
@@ -169,10 +169,11 @@ export class AppComponent {
 Demo component files are included in Git Project.
 
 Demo Project:
-[https://github.com/mariohmol/ng-brazil/tree/master/src/app/demo)
+[https://github.com/thivalente/ngx-brazil/tree/master/src/app/demo)
 
 Reference projects:
 
+* https://github.com/mariohmol/ng-brazil
 * https://github.com/mariohmol/js-brasil
 * https://github.com/yuyang041060120/ng2-validation
 * https://github.com/text-mask/text-mask
@@ -194,6 +195,9 @@ Finally working in the project folder:
 * npm run build:lib
 * npm run dist
 * npm run start
+
+To publish a new release, update the version in [package.json](./package.json) and [src/package.json](./src/package.json),
+then run `npm run publish-npm`.
 
 # License
 

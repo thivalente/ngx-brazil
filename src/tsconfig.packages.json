@@ -1,21 +1,20 @@
 {
   "extends": "../tsconfig.json",
   "angularCompilerOptions": {
-    "enableIvy": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "paths": {
-      "ng-brazil": [ "../dist/ng-brazil" ]
+      "ngx-brazil": [ "../dist/ngx-brazil" ]
     }
   },
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "module": "es2015",
+    "module": "commonjs",
     "baseUrl": "",
     "types": [],
     "paths": {
-      "ng-brazil": [ "../dist/ng-brazil" ]
+      "ngx-brazil": [ "../dist/ngx-brazil" ]
     }
   },
   "exclude": [

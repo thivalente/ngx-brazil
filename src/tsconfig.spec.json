@@ -3,14 +3,13 @@
   "compilerOptions": {
     "outDir": "../out-tsc/spec",
     "module": "commonjs",
-    "target": "es5",
     "baseUrl": "",
     "types": [
       "jasmine",
       "node"
     ],
     "paths": {
-      "@my/lib": [ "../dist/ng-brazil" ]
+      "@my/lib": [ "../dist/ngx-brazil" ]
     }
   },
   "files": [

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NgBrazil, TextMask } from '../../ng-brazil/src/public_api';
+import { NgxBrazil, TextMask } from '../../ngx-brazil/src/public_api';
 import { DemoComponent } from './demo/demo.component';
 import { CommonModule } from '@angular/common';
 
@@ -19,8 +19,8 @@ export const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     TextMask.TextMaskModule,
-    NgBrazil,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
+    NgxBrazil,
+    RouterModule.forRoot(routes, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,7 +6,7 @@
   "commitMessage": "{{semanticPrefix}}update {{depName}} to version {{newVersion}}",
   "packageFiles": [
     "package.json",
-    "ng-brazil/package.json"
+    "ngx-brazil/package.json"
   ],
   "packages": [
     {

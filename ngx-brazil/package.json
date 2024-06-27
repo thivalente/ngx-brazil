@@ -1,0 +1,32 @@
+{
+  "name": "ngx-brazil",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "license": "MIT",
+  "homepage": "https://github.com/thivalente/ngx-brazil",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thivalente/ngx-brazil.git"
+  },
+  "author": "Thiago Valente <thiago.valente@fitideias.com.br> forked from Mario Mol <mariohmol@gmail.com>",
+  "keywords": [
+    "angular",
+    "ngx-brazil",
+    "cpf cnpj dual telefone",
+    "utils"
+  ],
+  "peerDependencies": {
+    "@angular/core": ">=15.0.0",
+    "@angular/common": ">=15.0.0",
+    "@angular/forms": ">=15.2.10",
+    "@angular/platform-browser": ">=15.0.0",
+    "js-brasil": "*"
+  },
+  "ngPackage": {
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "lib": {
+      "entryFile": "src/public_api.ts"
+    },
+    "dest": "../dist/ngx-brazil"
+  }
+}

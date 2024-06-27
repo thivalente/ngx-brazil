@@ -8,7 +8,7 @@
     "declaration": false,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "target": "es2015",
+    "target": "esnext",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -17,11 +17,12 @@
       "dom"
     ],
     "paths": {
-      "ng-brazil": [
-        "dist/ng-brazil"
+      "ngx-brazil": [
+        "dist/ngx-brazil"
       ]
     },
-    "module": "es2015"
+    "module": "commonjs",
+    "useDefineForClassFields": false
   },
   "exclude": [
     ".ng_build"

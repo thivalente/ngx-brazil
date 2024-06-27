@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
-import { utilsBr } from 'js-brasil';
-import { NgBrazilValidators, NgBrDirectives } from '../../../ng-brazil/src/lib.module';
+import { fakerBr, utilsBr } from 'js-brasil';
+import { NgxBrazilValidators, NgBrDirectives } from '../../../ngx-brazil/src/lib.module';
+import { FormBuilder, Validators } from '@angular/forms';
 
 const {MASKS, MASKSIE,
   isPresent,
@@ -213,20 +213,20 @@ export class DemoComponent implements OnInit {
 
     this.formFields = {
       estado: [''],
-      cpf: ['', [<any>Validators.required, <any>NgBrazilValidators.cpf]],
-      cnpj: ['', [<any>Validators.required, <any>NgBrazilValidators.cnpj]],
-      rg: ['', [<any>Validators.required, <any>NgBrazilValidators.rg]],
-      inscricaoestadual: ['', [<any>Validators.required, <any>NgBrazilValidators.inscricaoestadual(this.estado)]],
-      telefone: ['', [<any>Validators.required, <any>NgBrazilValidators.telefone]],
-      cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]],
-      currency: ['', [<any>Validators.required, <any>NgBrazilValidators.currency]],
-      currencyNumber: [0, [<any>Validators.required, <any>NgBrazilValidators.currency]],
-      number: ['', [<any>Validators.required, <any>NgBrazilValidators.number]],
-      time: ['', [<any>Validators.required, <any>NgBrazilValidators.time]],
-      pispasep: ['', [<any>Validators.required, <any>NgBrazilValidators.pispasep]],
-      placa: ['', [<any>Validators.required, <any>NgBrazilValidators.placa]],
-      renavam: ['', [<any>Validators.required, <any>NgBrazilValidators.renavam]],
-      titulo: ['', [<any>Validators.required, <any>NgBrazilValidators.titulo]]
+      cpf: ['', [<any>Validators.required, <any>NgxBrazilValidators.cpf]],
+      cnpj: ['', [<any>Validators.required, <any>NgxBrazilValidators.cnpj]],
+      rg: ['', [<any>Validators.required, <any>NgxBrazilValidators.rg]],
+      inscricaoestadual: ['', [<any>Validators.required, <any>NgxBrazilValidators.inscricaoestadual(this.estado)]],
+      telefone: ['', [<any>Validators.required, <any>NgxBrazilValidators.telefone]],
+      cep: ['', [<any>Validators.required, <any>NgxBrazilValidators.cep]],
+      currency: ['', [<any>Validators.required, <any>NgxBrazilValidators.currency]],
+      currencyNumber: [0, [<any>Validators.required, <any>NgxBrazilValidators.currency]],
+      number: ['', [<any>Validators.required, <any>NgxBrazilValidators.number]],
+      time: ['', [<any>Validators.required, <any>NgxBrazilValidators.time]],
+      pispasep: ['', [<any>Validators.required, <any>NgxBrazilValidators.pispasep]],
+      placa: ['', [<any>Validators.required, <any>NgxBrazilValidators.placa]],
+      renavam: ['', [<any>Validators.required, <any>NgxBrazilValidators.renavam]],
+      titulo: ['', [<any>Validators.required, <any>NgxBrazilValidators.titulo]]
     };
     this.form = this.fb.group(this.formFields);
     this.formNoMask = this.fb.group(this.formFields);
@@ -242,18 +242,18 @@ export class DemoComponent implements OnInit {
     })
   }
 
-  // generate(key) {
-  //   if (fakerBr[key]) {
-  //     this.generated[key] = fakerBr[key]();
-  //   }
-  // }
+  generate(key) {
+    if (fakerBr[key]) {
+      this.generated[key] = fakerBr[key]();
+    }
+  }
 
-  // generateParam(key, param) {
-  //   if (fakerBr[key] && fakerBr[key][param]) {
-  //     this.generated[key] = fakerBr[key][param]();
-  //   }
+  generateParam(key, param) {
+    if (fakerBr[key] && fakerBr[key][param]) {
+      this.generated[key] = fakerBr[key][param]();
+    }
 
-  // }
+  }
 
   submit(form) {
     this.formData = form.value;
