@@ -1,6 +1,6 @@
 {
   "name": "ngx-brazil",
-  "version": "16.0.0",
+  "version": "17.0.0",
   "license": "MIT",
   "homepage": "https://github.com/thivalente/ngx-brazil",
   "repository": {
@@ -15,8 +15,8 @@
     "utils"
   ],
   "peerDependencies": {
-    "@angular/core": ">=8.0.0 <10.0.0",
-    "@angular/common": ">=8.0.0 <10.0.0"
+    "@angular/core": ">=15.0.0",
+    "@angular/common": ">=15.0.0"
   },
   "dependencies": {
     "@angular/common": ">=15.0.0",
