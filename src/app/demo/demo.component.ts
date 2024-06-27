@@ -243,6 +243,7 @@ export class DemoComponent implements OnInit {
   }
 
   generate(key) {
+    console.log(key, fakerBr);
     if (fakerBr[key]) {
       this.generated[key] = fakerBr[key]();
     }

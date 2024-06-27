@@ -1,6 +1,6 @@
 {
   "name": "ngx-brazil",
-  "version": "15.0.0",
+  "version": "16.0.0",
   "type": "commonjs",
   "license": "MIT",
   "homepage": "https://github.com/thivalente/ngx-brazil",
@@ -28,8 +28,5 @@
       "entryFile": "src/public_api.ts"
     },
     "dest": "../dist/ngx-brazil"
-  },
-  "dependencies": {
-    "@angular-eslint/schematics": "^17.0.0"
   }
 }
