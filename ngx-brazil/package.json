@@ -30,6 +30,6 @@
     "dest": "../dist/ngx-brazil"
   },
   "dependencies": {
-    "@angular-eslint/schematics": "^16.3.1"
+    "@angular-eslint/schematics": "^17.0.0"
   }
 }
