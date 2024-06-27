@@ -3,6 +3,7 @@
   "compilerOptions": {
     "importHelpers": true,
     "outDir": "./dist/out-tsc",
+    "esModuleInterop": true,
     "baseUrl": "src",
     "sourceMap": true,
     "declaration": false,
@@ -21,7 +22,7 @@
         "dist/ngx-brazil"
       ]
     },
-    "module": "commonjs",
+    "module": "ES2022",
     "useDefineForClassFields": false
   },
   "exclude": [
