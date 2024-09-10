@@ -13,7 +13,7 @@ export interface MaskType {
 export interface Masks {
     aih: MaskType,
     cartaocredito: MaskType,
-    celular: MaskType,
+    cellphone: MaskType,
     cep: MaskType,
     // certidao Certidões de Nascimento, Casamento ou Óbito 
     certidao: MaskType,

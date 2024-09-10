@@ -12,7 +12,7 @@ export function validateAih(aih: string) {
   return dvOriginal === dv;
 }
 
-export function validateCelular(cel: any) {
+export function validateCellphone(cel: any) {
   let celClean = cel.replace(/[^\d]+/g, '');
   celClean = celClean.replace(/_/g, '');
   if (celClean.length !== 11) {
@@ -688,7 +688,7 @@ export default RG;
 export const validateBr: BigObject<Function> = {
   aih: validateAih,
   cartaocredito: validateCartaoCredito,
-  celular: validateCelular,
+  cellphone: validateCellphone,
   cep: validateCep,
   certidao: validateCertidao,
   chassi: validateChassi,

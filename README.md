@@ -10,7 +10,7 @@ Supports: Angular 15 to Angular 18
 
 * Angular version 18.x.x
 
-` npm install --save ngx-brazil@18.0.3`
+` npm install --save ngx-brazil@18.0.4`
 
 * Angular version 17.x.x
 

@@ -19,8 +19,8 @@ export function aih(uf = 35, ano = 19, tipo = 1, seq: number | null = null) {
     return `${cod}${digito}`;
 }
 
-export function celular(options: any = {}) {
-    return phoneNumber({ ...options, celular: true });
+export function cellphone(options: any = {}) {
+    return phoneNumber({ ...options, cellphone: true });
 }
 
 export function cep(options: any = {}) {
@@ -252,7 +252,7 @@ export function veiculo() {
 // Exportação de todas as funcionalidades
 export const fakerBr: BigObject<Function> = {
     aih,
-    celular,
+    cellphone,
     cep,
     certidao,
     chassi,

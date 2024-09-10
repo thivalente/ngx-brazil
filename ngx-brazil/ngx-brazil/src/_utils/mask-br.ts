@@ -23,7 +23,7 @@ export const MASKS: BigObject<MaskType> = {
     text: '0000 0000 0000 0000 00/00 000',
     textMask: [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, '/', /\d/, /\d/, ' ', /\d/, /\d/, /\d/]
   },
-  celular: {
+  cellphone: {
     text: '(00) 00000-0000',
     textMask: ['(', /[1-9]/, /\d/, ')', ' ', /[5-9]/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   },
@@ -245,7 +245,7 @@ function formatNumber(maskType: any, numberValue: any, decimalsFormat: number = 
 export const maskBr = {
   aih: makeGeneric('aih'),
   cartaocredito: makeGeneric('cartaocredito'),
-  celular: makeGeneric('celular'),
+  cellphone: makeGeneric('cellphone'),
   cep: makeGeneric('cep'),
   certidao: makeGeneric('certidao'),
   chassi: makeGeneric('chassi'),

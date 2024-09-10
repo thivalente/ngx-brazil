@@ -24,13 +24,13 @@ export * from './phone-number/validator';
 export * from './phone-number/directive';
 export * from './phone-number/pipe';
 
-import { celular } from './celular/validator';
-import { CelularValidator } from './celular/directive';
-import { CelularPipe } from './celular/pipe';
+import { cellphone } from './cellphone/validator';
+import { CellphoneValidator } from './cellphone/directive';
+import { CellphonePipe } from './cellphone/pipe';
 
-export * from './celular/validator';
-export * from './celular/directive';
-export * from './celular/pipe';
+export * from './cellphone/validator';
+export * from './cellphone/directive';
+export * from './cellphone/pipe';
 
 import { inscricaoestadual } from './inscricaoestadual/validator';
 import { InscricaoEstadualValidator } from './inscricaoestadual/directive';
@@ -124,7 +124,7 @@ export * from './titulo/pipe';
 export const NgxBrazilValidators: any = {
   cpf,
   cnpj,
-  celular,
+  cellphone,
   cep,
   currency,
   inscricaoestadual,
@@ -148,8 +148,8 @@ import { MaskedInputDirective } from './masked-input.directive';
 export { MaskedInputDirective } from './masked-input.directive';
 
 export const NgxBrazilCustomDirectives = [
-  CelularValidator,
-  CelularPipe,
+  CellphoneValidator,
+  CellphonePipe,
   CEPValidator,
   CEPPipe,
   CNPJValidator,
@@ -183,8 +183,8 @@ export const NgxBrazilCustomDirectives = [
 ];
 
 export const NgxBrazilDirectives = {
-  CelularValidator,
-  CelularPipe,
+  CellphoneValidator,
+  CellphonePipe,
   CEPValidator,
   CEPPipe,
   CNPJValidator,
