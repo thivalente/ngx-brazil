@@ -1,0 +1,13 @@
+.container {
+    header {
+        margin-bottom: 30px;
+      
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        p { color: #666; font-size: 1.2rem; margin-top: 0; }
+    }
+    
+    .component-section { background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 20px;
+    
+        h2 { font-size: 1.75rem; margin-bottom: 15px; }
+    }
+}

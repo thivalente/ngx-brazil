@@ -1,0 +1,22 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/spec",
+    "module": "ES2022",
+    "baseUrl": "",
+    "types": [
+      "jasmine",
+      "node"
+    ],
+    "paths": {
+      "@my/lib": [ "../dist/ngx-brazil" ]
+    }
+  },
+  "files": [
+    "test.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "**/*.d.ts"
+  ]
+}

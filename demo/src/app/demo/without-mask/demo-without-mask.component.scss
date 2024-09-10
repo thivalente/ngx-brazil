@@ -1,0 +1,11 @@
+.without-mask {
+    .form-group {
+        min-height: 100px;
+
+        &.cpf,
+        &.cnpj { min-height: 156px; }
+    }
+    
+    .generate { align-items: center; display: flex; gap: 10px; }
+    .inscricao-estadual select { max-width: 100px; }
+}

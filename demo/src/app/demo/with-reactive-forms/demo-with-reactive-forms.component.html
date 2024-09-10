@@ -1,0 +1,118 @@
+<section class="form-section with-reactive-forms">
+    @if (form) {
+      <form [formGroup]="form" (submit)="submit(form)">
+        <div class="form-group cpf">
+          <label for="mask-cpf">CPF</label>
+          <input id="mask-cpf" type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"
+            [ngClass]="{'is-invalid': formDataValidate.cpf && (form.get('cpf')?.touched || form.get('cpf')?.dirty)}">
+          <div class="generate">
+              <button type="button" (click)="generate('cpf')">Generate CPF</button>
+              <span *ngIf="generated.cpf">Generated CPF: <b>{{generated.cpf}}</b></span>
+          </div>
+          <small>Get working example at: <a href="http://www.geradorbrasileiro.com/cpf.html" target="_blank">CPF Generator</a></small>
+          <span *ngIf="formData.cpf">CPF: {{formData.cpf}}</span>
+          <app-error-container [errors]="formDataValidate.cpf" [fieldName]="'CPF'"></app-error-container>
+        </div>
+        <div class="form-group cnpj">
+          <label for="mask-cnpj">CNPJ</label>
+          <input id="mask-cnpj" type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"
+            [ngClass]="{'is-invalid': formDataValidate.cnpj && (form.get('cnpj')?.touched || form.get('cnpj')?.dirty)}">
+          <div class="generate">
+              <button type="button" (click)="generate('cnpj')">Generate CNPJ</button>
+              <span *ngIf="generated.cnpj">Generated CNPJ: <b>{{generated.cnpj}}</b></span>
+          </div>
+          <small>Get working example at: <a href="http://www.geradorbrasileiro.com/cnpj.html" target="_blank">CNPJ Generator</a></small>
+          <span *ngIf="formData.cnpj">CNPJ: {{formData.cnpj}}</span>
+          <app-error-container [errors]="formDataValidate.cnpj" [fieldName]="'CNPJ'"></app-error-container>
+        </div>
+        <div class="form-group">
+          <label for="mask-cep">CEP</label>
+          <input id="mask-cep" type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}"
+            [ngClass]="{'is-invalid': formDataValidate.cep && (form.get('cep')?.touched || form.get('cep')?.dirty)}">
+          <span *ngIf="formData.cep">CEP: {{formData.cep}}</span>
+          <app-error-container [errors]="formDataValidate.cep" [fieldName]="'CEP'"></app-error-container>
+        </div>
+        <div class="form-group">
+          <label for="mask-currency">Currency</label>
+          <input id="mask-currency" type="text" formControlName="currency" currency [textMask]="{mask: MASKS.currency.textMask}"
+            [ngClass]="{'is-invalid': formDataValidate.currency && (form.get('currency')?.touched || form.get('currency')?.dirty)}">
+          <span *ngIf="formData.currency">Currency: {{formData.currency}}</span>
+          <app-error-container [errors]="formDataValidate.currency" [fieldName]="'CURRENCY'"></app-error-container>
+        </div>
+        <div class="form-group">
+          <label for="mask-rg">RG</label>
+          <input id="mask-rg" type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"
+            [ngClass]="{'is-invalid': formDataValidate.rg && (form.get('rg')?.touched || form.get('rg')?.dirty)}">
+          <span *ngIf="formData.rg">RG: {{formData.rg}}</span>
+          <app-error-container [errors]="formDataValidate.rg" [fieldName]="'RG'"></app-error-container>
+        </div>
+        <div class="form-group inscricao-estadual">
+          <label for="mask-inscricaoestadual">Inscrição Estadual</label>
+          <div class="input-group">
+            <select formControlName="state" 
+                    (change)="changeState($event)" 
+                    [ngClass]="{'is-invalid': formDataValidate.inscricaoestadual && (form.get('state')?.touched || form.get('state')?.dirty)}">
+              <option class="uppercase" *ngFor="let e of demoService.states" [value]="e">{{e}}</option>
+            </select>
+            
+            <input id="mask-inscricaoestadual" type="text" formControlName="inscricaoestadual" [textMask]="{mask: MASKSIE[state].textMask}"
+                   [ngClass]="{'is-invalid': formDataValidate.inscricaoestadual && (form.get('inscricaoestadual')?.touched || form.get('inscricaoestadual')?.dirty)}">
+          </div>
+          <span *ngIf="formData.inscricaoestadual">Inscrição Estadual ({{state}}): {{formData.inscricaoestadual}}</span>
+          <app-error-container [errors]="formDataValidate.inscricaoestadual" [fieldName]="'INSCRICAOESTADUAL'"></app-error-container>
+        </div>
+        <div class="form-group">
+          <label for="mask-number">Número</label>
+          <input id="mask-number" type="text" formControlName="number" number [textMask]="{mask: MASKS.number.textMask}"
+            [ngClass]="{'is-invalid': formDataValidate.number && (form.get('number')?.touched || form.get('number')?.dirty)}">
+          <span *ngIf="formData.number">Número: {{formData.number}}</span>
+          <app-error-container [errors]="formDataValidate.number" [fieldName]="'NUMBER'"></app-error-container>
+        </div>
+        <div class="form-group">
+          <label for="mask-pispasep">PIS/PASEP</label>
+          <input id="mask-pispasep" type="text" formControlName="pispasep" pispasep [textMask]="{mask: MASKS.pispasep.textMask}"
+            [ngClass]="{'is-invalid': formDataValidate.pispasep && (form.get('pispasep')?.touched || form.get('pispasep')?.dirty)}">
+          <span *ngIf="formData.pispasep">PIS/PASEP: {{formData.pispasep}}</span>
+          <app-error-container [errors]="formDataValidate.pispasep" [fieldName]="'PISPASEP'"></app-error-container>
+        </div>
+        <div class="form-group">
+          <label for="mask-license-plate">License Plate</label>
+          <input id="mask-license-plate" type="text" formControlName="licensePlate" licensePlate [textMask]="{mask: MASKS.licensePlate.textMask}"
+            [ngClass]="{'is-invalid': formDataValidate.licensePlate && (form.get('licensePlate')?.touched || form.get('licensePlate')?.dirty)}">
+          <span *ngIf="formData.licensePlate">License Plate: {{formData.licensePlate}}</span>
+          <app-error-container [errors]="formDataValidate.licensePlate" [fieldName]="'LICENSEPLATE'"></app-error-container>
+        </div>
+        <div class="form-group">
+          <label for="mask-renavam">Renavam</label>
+          <input id="mask-renavam" type="text" formControlName="renavam" renavam [textMask]="{mask: MASKS.renavam.textMask}"
+            [ngClass]="{'is-invalid': formDataValidate.renavam && (form.get('renavam')?.touched || form.get('renavam')?.dirty)}">
+          <span *ngIf="formData.renavam">Renavam: {{formData.renavam}}</span>
+          <app-error-container [errors]="formDataValidate.renavam" [fieldName]="'RENAVAM'"></app-error-container>
+        </div>
+        <div class="form-group">
+          <label for="mask-phoneNumber">Phone Number</label>
+          <input id="mask-phoneNumber" type="text" formControlName="phoneNumber" phoneNumber [textMask]="{mask: MASKS.phoneNumber.textMaskFunction}"
+            [ngClass]="{'is-invalid': formDataValidate.phoneNumber && (form.get('phoneNumber')?.touched || form.get('phoneNumber')?.dirty)}">
+          <span *ngIf="formData.phoneNumber">Phone Number: {{formData.phoneNumber}}</span>
+          <app-error-container [errors]="formDataValidate.phoneNumber" [fieldName]="'PHONENUMBER'"></app-error-container>
+        </div>
+        <div class="form-group">
+          <label for="mask-time">Time</label>
+          <input id="mask-time" type="text" formControlName="time" time [textMask]="{mask: MASKS.time.textMask}"
+            [ngClass]="{'is-invalid': formDataValidate.time && (form.get('time')?.touched || form.get('time')?.dirty)}">
+          <span *ngIf="formData.time">Time: {{formData.time}}</span>
+          <app-error-container [errors]="formDataValidate.time" [fieldName]="'TIME'"></app-error-container>
+        </div>
+        <div class="form-group">
+          <label for="mask-titulo">Título</label>
+          <input id="mask-titulo" type="text" formControlName="titulo" titulo [textMask]="{mask: MASKS.titulo.textMask}"
+            [ngClass]="{'is-invalid': formDataValidate.titulo && (form.get('titulo')?.touched || form.get('titulo')?.dirty)}">
+          <span *ngIf="formData.titulo">Título: {{formData.titulo}}</span>
+          <app-error-container [errors]="formDataValidate.titulo" [fieldName]="'TITULO'"></app-error-container>
+        </div>
+    
+        <button type="submit">Submit Form</button>
+      </form>
+    }
+</section>
+  

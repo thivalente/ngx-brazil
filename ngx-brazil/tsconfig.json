@@ -1,0 +1,40 @@
+{
+  "compileOnSave": false,
+  "angularCompilerOptions": {
+    "enableIvy": true
+  },
+  "compilerOptions": {
+    "importHelpers": true,
+    "outDir": "./dist/out-tsc",
+    "esModuleInterop": true,
+    "baseUrl": "src",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "target": "es2022",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
+    "paths": {
+      "ngx-brazil": [
+        "dist/ngx-brazil"
+      ]
+    },
+    "module": "ES2022",
+    "useDefineForClassFields": false
+  },
+  "files": [
+    "./src/main.ts"
+  ],
+  "include": [
+    "**/*.d.ts"
+  ],
+  "exclude": [
+    ".ng_build"
+  ]
+}

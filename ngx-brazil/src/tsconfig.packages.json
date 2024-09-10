@@ -1,0 +1,35 @@
+{
+  "extends": "../tsconfig.json",
+  "angularCompilerOptions": {
+    "enableIvy": true,
+    "mainPath": "./main.ts",
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
+    "paths": {
+      "ngx-brazil": [ "../dist/ngx-brazil" ]
+    }
+  },
+  "compilerOptions": {
+    // "strict": true,
+    "outDir": "../out-tsc/app",
+    "module": "ES2022",
+    "baseUrl": "",
+    "types": [],
+    "paths": {
+      "ngx-brazil": [ "../dist/ngx-brazil" ]
+    }
+  },
+  "files": [
+    "test.ts",
+    "polyfills.ts",
+    "./main.ts"
+  ],
+  "include": [
+    "**/*.d.ts"
+  ],
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}
