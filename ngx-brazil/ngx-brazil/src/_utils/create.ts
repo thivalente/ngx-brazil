@@ -67,15 +67,13 @@ export function createCnh(value: string): string {
   return value.substr(-2);
 }
 
-// Função para criar CNPJ
 export function createCnpj(cnpj: string): number[] {
-  cnpj = cnpj.replace(/[^\d]+/g, '');
-  if (cnpj.length !== 14 || !isValidCnpj(cnpj)) {
-    return [];
-  }
+  const cnpjWithoutDigits = cnpj.replace(/[^\d]+/g, '').substring(0, 12);
 
-  const resultados = calcularDigitosCnpj(cnpj);
-  return resultados;
+  const firstDigit = calcularDigitoVerificadorCnpj(cnpjWithoutDigits, 12);
+  const secondDigit = calcularDigitoVerificadorCnpj(`${cnpjWithoutDigits}${firstDigit}`, 13);
+
+  return [firstDigit, secondDigit];
 }
 
 // Função para criar CNS
@@ -166,6 +164,32 @@ function calcularDigitoCertidao(value: string, fator: number): number {
   return (result * fator) % 11;
 }
 
+export function validarDigitosCnpj(cnpj: string): boolean {
+  // Remove caracteres não numéricos
+  cnpj = cnpj.replace(/[^\d]+/g, '');
+
+  // O CNPJ precisa ter exatamente 14 dígitos
+  if (cnpj.length !== 14 || !isValidCnpj(cnpj)) {
+    return false;
+  }
+
+  // Cálculo do primeiro dígito verificador
+  const primeiroDigitoCalculado = calcularDigitoVerificadorCnpj(cnpj, 12);
+  
+  if (primeiroDigitoCalculado !== parseInt(cnpj.charAt(12), 10)) {
+    return false;
+  }
+
+  // Cálculo do segundo dígito verificador
+  const segundoDigitoCalculado = calcularDigitoVerificadorCnpj(cnpj, 13);
+  
+  if (segundoDigitoCalculado !== parseInt(cnpj.charAt(13), 10)) {
+    return false;
+  }
+
+  return true;
+}
+
 function calcularDigitosCnpj(cnpj: string): number[] {
   const resultados = [];
   let soma = 0;
@@ -185,6 +209,21 @@ function calcularDigitosCnpj(cnpj: string): number[] {
   resultados.push(soma % 11 < 2 ? 0 : 11 - soma % 11);
 
   return resultados;
+}
+
+function calcularDigitoVerificadorCnpj(cnpj: string, tamanho: number): number {
+  let soma = 0;
+  let pos = tamanho - 7;
+
+  for (let i = 0; i < tamanho; i++) {
+    soma += parseInt(cnpj.charAt(i), 10) * pos--;
+    if (pos < 2) {
+      pos = 9;
+    }
+  }
+
+  const resto = soma % 11;
+  return resto < 2 ? 0 : 11 - resto;
 }
 
 function calcularSomaCns(number: string): number {

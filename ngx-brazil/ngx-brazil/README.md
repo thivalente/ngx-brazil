@@ -10,7 +10,7 @@ Supports: Angular 15 to Angular 18
 
 * Angular version 18.x.x
 
-` npm install --save ngx-brazil@18.0.1`
+` npm install --save ngx-brazil@18.0.3`
 
 * Angular version 17.x.x
 
@@ -50,7 +50,7 @@ Modules:
 
 
 See the demo working project:
-
+[https://stackblitz.com/edit/ngx-brazil]
 
 ![Demo Image](/src/assets/print.png)
 
@@ -81,42 +81,25 @@ export class AppModule { }
 
 #### Using Masks
 
-If you would like to use masks install the module: 
-
-`npm i -S ngx-mask`
-
-
-And import to your main app:
-
-```ts
-import { NgxMaskDirective, NgxMaskPipe, provideNgxMask, IConfig } from 'ngx-mask';
-
-export const maskConfig: Partial<IConfig> = { };
-
-imports: [
-    ....,
-    NgxMaskDirective, NgxMaskPipe,
-    NgxBrazil
-  ],
-  providers: [provideNgxMask()]
-```
-
-
-Then setup your component:
+Setup your component:
 
 ```ts
 import { Component } from '@angular/core';
-import { MASKS, NgxBrazilValidators } from 'ngx-brazil';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { NgxBrazilMASKS, NgxBrazilValidators } from 'ngx-brazil';
 
 @Component({
   selector: 'app-root',
-  template: '<input type="text" [cpf]>',
+  template: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public MASKS = MASKS;
+  public MASKS: any = NgxBrazilMASKS;
+  public estado: string = 'SP';
+  public formFields: any;
+  public form?: FormGroup;
   
-  constructor() { 
+  constructor(public fb: FormBuilder) { 
     this.formFields = {
       estado: [''],
       cpf: ['', [<any>Validators.required, <any>NgxBrazilValidators.cpf]],
@@ -138,12 +121,13 @@ export class AppComponent {
 <input type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}">
 <input type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}">
 <input type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> 
-<input type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
+<input type="text" formControlName="inscricaoestadual" inscricaoestadual="sp" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
 <input type="text" formControlName="phoneNumber" phoneNumber #phoneNumber [textMask]="{mask: MASKS.phoneNumber.textMaskFunction}">
 <input type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
 
 <input type="text" formControlName="number" number [textMask]="{mask: MASKS.number.textMask}">
 ```
+
 ## Pipes
 
 ```html
@@ -159,27 +143,24 @@ Currency: From 123.23 to {{'123.23' | currencyBrazil}} <br/>
 
 ```ts
 import { Component } from '@angular/core';
-import { NgBrDirectives } from 'ngx-brazil';
+import { NgxBrazil } from 'ngx-brazil';
 
 @Component({
   selector: 'app-root',
-  template: '<input type="text" [cpf]>',
+  template: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  inscricaoestadual() {
-    const {InscricaoEstadualPipe} = NgBrDirectives;
-    return new InscricaoEstadualPipe()
-      .transform('625085487072', 'sp');
-  }
+  
 }
 ```
+
 # Demo
 
 Demo component files are included in Git Project.
 
 Demo Project:
-[https://github.com/thivalente/ngx-brazil/tree/master/src/app/demo)
+[https://stackblitz.com/edit/ngx-brazil]
 
 Reference projects:
 
@@ -187,9 +168,6 @@ Reference projects:
 * https://github.com/mariohmol/ng-brazil
 
 
-# TODO
-
-There is some issues to work with, check it out
 
 ## Collaborate
 

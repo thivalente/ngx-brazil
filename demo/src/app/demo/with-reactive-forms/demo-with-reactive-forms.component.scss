@@ -6,6 +6,26 @@
         &.cnpj { min-height: 156px; }
     }
     
-    .generate { align-items: center; display: flex; gap: 10px; }
+    .example {
+        @media (max-width: 1024px) {
+          font-size: 12px;
+        }
+    }
+    
+    .generate {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+    
+        @media (max-width: 1024px) {
+          align-items: flex-start;
+          flex-direction: column;
+    
+          span {
+            font-size: 14px;
+          }
+        }
+    }
+
     .inscricao-estadual select { max-width: 100px; }
 }

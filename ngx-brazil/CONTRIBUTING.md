@@ -18,8 +18,13 @@ npm run start
 
 ## Internal Tests (using local link)
 
+### Uninstall ngx-brazil from npm
+```
+npm uninstall ngx-brazil
+```
+
 ### If there is this folder ngx-brazil\dist\ngx-brazil:
-Go to ngx-brazil\dist\ngx-brazil and run:
+Go to ngx-brazil\dist\ngx-brazil and run e clean the cache:
 ```
 npm unlink ngx-brazil
 ng cache clean
@@ -27,7 +32,7 @@ npm cache clean --force
 cd ..\..
 ```
 
-### Generate the dist and create local link
+### Generate the dist and create local link (symlink)
 ```
 npm run build:lib
 cd dist/ngx-brazil

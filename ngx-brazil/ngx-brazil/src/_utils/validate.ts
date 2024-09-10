@@ -1,7 +1,7 @@
 import { getAllDigits, fillString, getAllWords } from './utils';
 import { BigObject } from './interfaces';
 import { validateInscricaoEstadual } from './inscricao-estadual';
-import { createCnpj, createCpf, createRenavam, createEct, createProcesso, createTituloAtual, createCnh, createCertidao, createAih, createPispasep, createCnhEspelho, createRenachEstadual, createRenachSeguranca } from './create';
+import { createCpf, createRenavam, createEct, createProcesso, createTituloAtual, createCnh, createCertidao, createAih, createPispasep, createCnhEspelho, createRenachEstadual, createRenachSeguranca, validarDigitosCnpj } from './create';
 import { validateIptu } from './iptu';
 import { STATE_ACRONYMS } from './states';
 
@@ -139,18 +139,8 @@ export function validateRenachSeguranca(value: string) {
   return value.substr(-1) === check;
 }
 
-export function validateCnpj(cnpj: any) {
-  cnpj = cnpj.replace(/[^\d]+/g, '');
-  const tamanho = cnpj.length - 2;
-  const digitos = cnpj.substring(tamanho);
-  const resultados = createCnpj(cnpj);
-  if (!resultados ||
-    resultados[0] !== parseInt(digitos.charAt(0), 10) ||
-    resultados[1] !== parseInt(digitos.charAt(1), 10)
-  ) {
-    return false;
-  }
-  return true;
+export function validateCnpj(cnpj: string): boolean {
+  return validarDigitosCnpj(cnpj);
 }
 
 export function validateCpf(strCpf: any) {
