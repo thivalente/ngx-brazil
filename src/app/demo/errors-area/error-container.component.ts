@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 
-@Component({ selector: 'app-error-container', templateUrl: './error-container.component.html', styleUrls: ['./error-container.component.scss']})
+@Component({
+    selector: 'app-error-container', templateUrl: './error-container.component.html', styleUrls: ['./error-container.component.scss'],
+    standalone: false
+})
 export class ErrorContainerComponent {
   @Input() errors: any;
   @Input() fieldName: string = '';

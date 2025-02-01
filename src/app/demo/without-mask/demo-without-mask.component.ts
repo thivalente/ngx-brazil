@@ -3,7 +3,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { DemoService } from '../demo.service';
 
-@Component({ selector: 'app-without-mask', templateUrl: './demo-without-mask.component.html', styleUrls: ['./demo-without-mask.component.scss'] })
+@Component({
+    selector: 'app-without-mask', templateUrl: './demo-without-mask.component.html', styleUrls: ['./demo-without-mask.component.scss'],
+    standalone: false
+})
 export class DemoWithoutMaskComponent implements OnInit {
     public state = 'SP';
 

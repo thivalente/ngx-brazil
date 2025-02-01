@@ -4,7 +4,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { DemoService } from '../demo.service';
 import { NgxBrazilMASKS, NgxBrazilMASKSIE } from '../../../../ngx-brazil/src/public_api';
 
-@Component({ selector: 'app-with-reactive-forms', templateUrl: './demo-with-reactive-forms.component.html', styleUrls: ['./demo-with-reactive-forms.component.scss']})
+@Component({
+    selector: 'app-with-reactive-forms', templateUrl: './demo-with-reactive-forms.component.html', styleUrls: ['./demo-with-reactive-forms.component.scss'],
+    standalone: false
+})
 export class DemoWithReactiveFormsComponent implements OnInit {
   public MASKS: any = NgxBrazilMASKS;
   public MASKSIE: any = NgxBrazilMASKSIE;

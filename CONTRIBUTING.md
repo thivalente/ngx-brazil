@@ -46,6 +46,6 @@ ng cache clean
 npm cache clean --force
 npm install
 npm link ngx-brazil
-npm serve
+ng serve
 
 ```

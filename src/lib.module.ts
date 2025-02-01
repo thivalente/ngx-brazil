@@ -216,8 +216,8 @@ export const NgxBrazilDirectives = {
 };
 
 @NgModule({
-  declarations: [ NgxBrazilCustomDirectives ],
-  imports: [ ],
+  declarations: [ ],
+  imports: [ NgxBrazilCustomDirectives ],
   exports: [ NgxBrazilCustomDirectives ]
 })
 class NgxBrazil {

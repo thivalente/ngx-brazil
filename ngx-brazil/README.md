@@ -4,9 +4,13 @@ Forked from https://github.com/mariohmol/ng-brazil
 
 Contains pipes / directives / validators / mask for brazillian like apps
 
-Supports: Angular 15 to Angular 18
+Supports: Angular 15 to Angular 19
 
 ## Installing:  
+
+* Angular version 19.x.x
+
+` npm install --save ngx-brazil@19.0.0`
 
 * Angular version 18.x.x
 
@@ -52,7 +56,7 @@ Modules:
 See the demo working project:
 [https://stackblitz.com/edit/ngx-brazil]
 
-![Demo Image](../src/assets/print.png)
+![Demo Image](https://github.com/thivalente/ngx-brazil/blob/main/src/assets/print.png)
 
  
 ## Usage
