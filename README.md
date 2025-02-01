@@ -52,7 +52,7 @@ Modules:
 See the demo working project:
 [https://stackblitz.com/edit/ngx-brazil]
 
-![Demo Image](ngx-brazil/src/assets/print.png)
+![Demo Image](./src/assets/print.png)
 
  
 ## Usage
