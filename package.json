@@ -1,8 +1,7 @@
 {
   "name": "ngx-brazil",
-  "version": "20.0.0",
+  "version": "20.0.4",
   "type": "commonjs",
-  "private": true,
   "license": "MIT",
   "scripts": {
     "ng": "ng",
