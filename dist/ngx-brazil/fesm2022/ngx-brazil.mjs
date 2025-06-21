@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { forwardRef, Directive, Pipe, Optional, Inject, Input, NgModule } from '@angular/core';
+import { forwardRef, Directive, Pipe, Input, Optional, Inject, NgModule } from '@angular/core';
 import { Validators, NG_VALIDATORS, NG_VALUE_ACCESSOR, COMPOSITION_BUFFER_MODE } from '@angular/forms';
 import { ɵgetDOM as _getDOM } from '@angular/platform-browser';
 
@@ -2144,10 +2144,10 @@ class CPFValidator {
     validate(c) {
         return cpf(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CPFValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: CPFValidator, isStandalone: true, selector: "[cpf][formControlName],[cpf][formControl],[cpf][ngModel]", providers: [CPF_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CPFValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: CPFValidator, isStandalone: true, selector: "[cpf][formControlName],[cpf][formControl],[cpf][ngModel]", providers: [CPF_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CPFValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CPFValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -2706,10 +2706,10 @@ class CPFPipe {
     transform(cpfValue) {
         return maskBr.cpf(cpfValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CPFPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: CPFPipe, isStandalone: true, name: "cpf" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CPFPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: CPFPipe, isStandalone: true, name: "cpf" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CPFPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CPFPipe, decorators: [{
             type: Pipe,
             args: [{
                     name: 'cpf',
@@ -2734,10 +2734,10 @@ class CNPJValidator {
     validate(c) {
         return cnpj(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CNPJValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: CNPJValidator, isStandalone: true, selector: "[cnpj][formControlName],[cnpj][formControl],[cnpj][ngModel]", providers: [CNPJ_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CNPJValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: CNPJValidator, isStandalone: true, selector: "[cnpj][formControlName],[cnpj][formControl],[cnpj][ngModel]", providers: [CNPJ_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CNPJValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CNPJValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -2750,10 +2750,10 @@ class CNPJPipe {
     transform(cnpjValue) {
         return maskBr.cnpj(cnpjValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CNPJPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: CNPJPipe, isStandalone: true, name: "cnpj" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CNPJPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: CNPJPipe, isStandalone: true, name: "cnpj" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CNPJPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CNPJPipe, decorators: [{
             type: Pipe,
             args: [{
                     name: 'cnpj',
@@ -2778,10 +2778,10 @@ class PhoneNumberValidator {
     validate(c) {
         return phoneNumber(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PhoneNumberValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: PhoneNumberValidator, isStandalone: true, selector: "[phoneNumber][formControlName],[phoneNumber][formControl],[phoneNumber][ngModel]", providers: [PHONENUMBER_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PhoneNumberValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: PhoneNumberValidator, isStandalone: true, selector: "[phoneNumber][formControlName],[phoneNumber][formControl],[phoneNumber][ngModel]", providers: [PHONENUMBER_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PhoneNumberValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PhoneNumberValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -2794,10 +2794,10 @@ class PhoneNumberPipe {
     transform(phoneNumberValue) {
         return maskBr.phoneNumber(phoneNumberValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PhoneNumberPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: PhoneNumberPipe, isStandalone: true, name: "phoneNumber" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PhoneNumberPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: PhoneNumberPipe, isStandalone: true, name: "phoneNumber" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PhoneNumberPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PhoneNumberPipe, decorators: [{
             type: Pipe,
             args: [{ name: 'phoneNumber' }]
         }] });
@@ -2820,10 +2820,10 @@ class CellphoneValidator {
     validate(c) {
         return cellphone(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CellphoneValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: CellphoneValidator, isStandalone: true, selector: "[cellphone][formControlName],[cellphone][formControl],[cellphone][ngModel]", providers: [CELLPHONE_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CellphoneValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: CellphoneValidator, isStandalone: true, selector: "[cellphone][formControlName],[cellphone][formControl],[cellphone][ngModel]", providers: [CELLPHONE_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CellphoneValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CellphoneValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -2836,10 +2836,10 @@ class CellphonePipe {
     transform(cellphoneValue) {
         return maskBr.cellphone(cellphoneValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CellphonePipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: CellphonePipe, isStandalone: true, name: "cellphone" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CellphonePipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: CellphonePipe, isStandalone: true, name: "cellphone" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CellphonePipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CellphonePipe, decorators: [{
             type: Pipe,
             args: [{ name: 'cellphone' }]
         }] });
@@ -2864,10 +2864,10 @@ class InscricaoEstadualValidator {
     validate(c) {
         return inscricaoestadual('mg')(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: InscricaoEstadualValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: InscricaoEstadualValidator, isStandalone: true, selector: "[inscricaoestadual][formControlName],[inscricaoestadual][formControl],[inscricaoestadual][ngModel]", providers: [INSCRICAOESTADUAL_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: InscricaoEstadualValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: InscricaoEstadualValidator, isStandalone: true, selector: "[inscricaoestadual][formControlName],[inscricaoestadual][formControl],[inscricaoestadual][ngModel]", providers: [INSCRICAOESTADUAL_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: InscricaoEstadualValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: InscricaoEstadualValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -2880,10 +2880,10 @@ class InscricaoEstadualPipe {
     transform(inscricaoestadualValue, estado) {
         return maskBr.inscricaoestadual(inscricaoestadualValue, estado);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: InscricaoEstadualPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: InscricaoEstadualPipe, isStandalone: true, name: "inscricaoestadual" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: InscricaoEstadualPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: InscricaoEstadualPipe, isStandalone: true, name: "inscricaoestadual" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: InscricaoEstadualPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: InscricaoEstadualPipe, decorators: [{
             type: Pipe,
             args: [{
                     name: 'inscricaoestadual',
@@ -2908,10 +2908,10 @@ class CEPValidator {
     validate(c) {
         return cep(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CEPValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: CEPValidator, isStandalone: true, selector: "[cep][formControlName],[cep][formControl],[cep][ngModel]", providers: [CEP_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CEPValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: CEPValidator, isStandalone: true, selector: "[cep][formControlName],[cep][formControl],[cep][ngModel]", providers: [CEP_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CEPValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CEPValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -2924,10 +2924,10 @@ class CEPPipe {
     transform(cepValue) {
         return maskBr.cep(cepValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CEPPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: CEPPipe, isStandalone: true, name: "cep" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CEPPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: CEPPipe, isStandalone: true, name: "cep" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CEPPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CEPPipe, decorators: [{
             type: Pipe,
             args: [{
                     name: 'cep',
@@ -2952,10 +2952,10 @@ class CURRENCYValidator {
     validate(c) {
         return currency(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CURRENCYValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: CURRENCYValidator, isStandalone: true, selector: "[currency][formControlName],[currency][formControl],[currency][ngModel]", providers: [CURRENCY_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CURRENCYValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: CURRENCYValidator, isStandalone: true, selector: "[currency][formControlName],[currency][formControl],[currency][ngModel]", providers: [CURRENCY_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CURRENCYValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CURRENCYValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -2968,10 +2968,10 @@ class CURRENCYPipe {
     transform(currencyValue, decimalValue = 2) {
         return maskBr.currency(currencyValue, decimalValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CURRENCYPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: CURRENCYPipe, isStandalone: true, name: "currencyBrazil" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CURRENCYPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: CURRENCYPipe, isStandalone: true, name: "currencyBrazil" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: CURRENCYPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: CURRENCYPipe, decorators: [{
             type: Pipe,
             args: [{ name: 'currencyBrazil' }]
         }] });
@@ -2994,10 +2994,10 @@ class NUMBERValidator {
     validate(c) {
         return number(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: NUMBERValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: NUMBERValidator, isStandalone: true, selector: "[number][formControlName],[number][formControl],[number][ngModel]", providers: [NUMBER_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: NUMBERValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: NUMBERValidator, isStandalone: true, selector: "[number][formControlName],[number][formControl],[number][ngModel]", providers: [NUMBER_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: NUMBERValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: NUMBERValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -3010,10 +3010,10 @@ class NUMBERPipe {
     transform(numberValue, decimalValue = 2) {
         return maskBr.number(numberValue, decimalValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: NUMBERPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: NUMBERPipe, isStandalone: true, name: "numberBrazil" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: NUMBERPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: NUMBERPipe, isStandalone: true, name: "numberBrazil" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: NUMBERPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: NUMBERPipe, decorators: [{
             type: Pipe,
             args: [{
                     name: 'numberBrazil',
@@ -3038,10 +3038,10 @@ class LICENSEPLATEValidator {
     validate(c) {
         return licensePlate(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: LICENSEPLATEValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: LICENSEPLATEValidator, isStandalone: true, selector: "[license-plate][formControlName],[license-plate][formControl],[license-plate][ngModel]", providers: [LICENSEPLATE_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: LICENSEPLATEValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: LICENSEPLATEValidator, isStandalone: true, selector: "[license-plate][formControlName],[license-plate][formControl],[license-plate][ngModel]", providers: [LICENSEPLATE_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: LICENSEPLATEValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: LICENSEPLATEValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -3054,10 +3054,10 @@ class LICENSEPLATEPipe {
     transform(licensePlateValue) {
         return maskBr.licensePlate(licensePlateValue).toUpperCase();
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: LICENSEPLATEPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: LICENSEPLATEPipe, isStandalone: true, name: "licensePlate" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: LICENSEPLATEPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: LICENSEPLATEPipe, isStandalone: true, name: "licensePlate" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: LICENSEPLATEPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: LICENSEPLATEPipe, decorators: [{
             type: Pipe,
             args: [{ name: 'licensePlate' }]
         }] });
@@ -3080,10 +3080,10 @@ class PERCENTAGEValidator {
     validate(c) {
         return percentage(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PERCENTAGEValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: PERCENTAGEValidator, isStandalone: true, selector: "[percentage][formControlName],[percentage][formControl],[percentage][ngModel]", providers: [PERCENTAGE_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PERCENTAGEValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: PERCENTAGEValidator, isStandalone: true, selector: "[percentage][formControlName],[percentage][formControl],[percentage][ngModel]", providers: [PERCENTAGE_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PERCENTAGEValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PERCENTAGEValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -3096,10 +3096,10 @@ class PERCENTAGEPipe {
     transform(percentageValue, decimalValue) {
         return maskBr.porcentagem(percentageValue, decimalValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PERCENTAGEPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: PERCENTAGEPipe, isStandalone: true, name: "percentage" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PERCENTAGEPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: PERCENTAGEPipe, isStandalone: true, name: "percentage" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PERCENTAGEPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PERCENTAGEPipe, decorators: [{
             type: Pipe,
             args: [{
                     name: 'percentage',
@@ -3124,10 +3124,10 @@ class RenavamValidator {
     validate(c) {
         return renavam(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: RenavamValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: RenavamValidator, isStandalone: true, selector: "[renavam][formControlName],[renavam][formControl],[renavam][ngModel]", providers: [RENAVAM_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: RenavamValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: RenavamValidator, isStandalone: true, selector: "[renavam][formControlName],[renavam][formControl],[renavam][ngModel]", providers: [RENAVAM_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: RenavamValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: RenavamValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -3140,10 +3140,10 @@ class RenavamPipe {
     transform(renavamValue) {
         return maskBr.renavam(renavamValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: RenavamPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: RenavamPipe, isStandalone: true, name: "renavam" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: RenavamPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: RenavamPipe, isStandalone: true, name: "renavam" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: RenavamPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: RenavamPipe, decorators: [{
             type: Pipe,
             args: [{
                     name: 'renavam',
@@ -3168,10 +3168,10 @@ class PispasepValidator {
     validate(c) {
         return pispasep(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PispasepValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: PispasepValidator, isStandalone: true, selector: "[pispasep][formControlName],[pispasep][formControl],[pispasep][ngModel]", providers: [PISPASE_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PispasepValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: PispasepValidator, isStandalone: true, selector: "[pispasep][formControlName],[pispasep][formControl],[pispasep][ngModel]", providers: [PISPASE_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PispasepValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PispasepValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -3184,10 +3184,10 @@ class PispasepPipe {
     transform(pispasepValue) {
         return maskBr.pispasep(pispasepValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PispasepPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: PispasepPipe, isStandalone: true, name: "pispasep" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PispasepPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: PispasepPipe, isStandalone: true, name: "pispasep" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: PispasepPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: PispasepPipe, decorators: [{
             type: Pipe,
             args: [{
                     name: 'pispasep',
@@ -3212,10 +3212,10 @@ class RGValidator {
     validate(c) {
         return rg(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: RGValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: RGValidator, isStandalone: true, selector: "[rg][formControlName],[rg][formControl],[rg][ngModel]", providers: [RG_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: RGValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: RGValidator, isStandalone: true, selector: "[rg][formControlName],[rg][formControl],[rg][ngModel]", providers: [RG_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: RGValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: RGValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -3228,10 +3228,10 @@ class RGPipe {
     transform(rgValue) {
         return maskBr.rg(rgValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: RGPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: RGPipe, isStandalone: true, name: "rg" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: RGPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: RGPipe, isStandalone: true, name: "rg" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: RGPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: RGPipe, decorators: [{
             type: Pipe,
             args: [{
                     name: 'rg',
@@ -3256,10 +3256,10 @@ class TIMEValidator {
     validate(c) {
         return time(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: TIMEValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: TIMEValidator, isStandalone: true, selector: "[time][formControlName],[time][formControl],[time][ngModel]", providers: [TIME_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: TIMEValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: TIMEValidator, isStandalone: true, selector: "[time][formControlName],[time][formControl],[time][ngModel]", providers: [TIME_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: TIMEValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: TIMEValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -3272,10 +3272,10 @@ class TIMEPipe {
     transform(timeValue) {
         return maskBr.time(timeValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: TIMEPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: TIMEPipe, isStandalone: true, name: "time" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: TIMEPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: TIMEPipe, isStandalone: true, name: "time" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: TIMEPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: TIMEPipe, decorators: [{
             type: Pipe,
             args: [{
                     name: 'time',
@@ -3299,10 +3299,10 @@ class TITULOValidator {
     validate(c) {
         return titulo(c);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: TITULOValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: TITULOValidator, isStandalone: true, selector: "[titulo][formControlName],[titulo][formControl],[titulo][ngModel]", providers: [TITULO_VALIDATOR], ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: TITULOValidator, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: TITULOValidator, isStandalone: true, selector: "[titulo][formControlName],[titulo][formControl],[titulo][ngModel]", providers: [TITULO_VALIDATOR], ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: TITULOValidator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: TITULOValidator, decorators: [{
             type: Directive,
             args: [{
                     // tslint:disable-next-line:directive-selector
@@ -3315,10 +3315,10 @@ class TITULOPipe {
     transform(tituloValue) {
         return maskBr.titulo(tituloValue);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: TITULOPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: TITULOPipe, isStandalone: true, name: "titulo" });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: TITULOPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+    static ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: TITULOPipe, isStandalone: true, name: "titulo" });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: TITULOPipe, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: TITULOPipe, decorators: [{
             type: Pipe,
             args: [{
                     name: 'titulo'
@@ -4050,10 +4050,10 @@ class MaskedInputDirective {
             this._handleInput(value);
         }
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: MaskedInputDirective, deps: [{ token: i0.RendererFactory2 }, { token: i0.ElementRef }, { token: COMPOSITION_BUFFER_MODE, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
-    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "19.1.4", type: MaskedInputDirective, isStandalone: true, selector: "[textMask]", inputs: { textMaskConfig: ["textMask", "textMaskConfig"] }, host: { listeners: { "input": "_handleInput($event.target.value)", "blur": "onTouched()", "compositionstart": "_compositionStart()", "compositionend": "_compositionEnd($event.target.value)" } }, providers: [MASKEDINPUT_VALUE_ACCESSOR], exportAs: ["textMask"], usesOnChanges: true, ngImport: i0 });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: MaskedInputDirective, deps: [{ token: i0.RendererFactory2 }, { token: i0.ElementRef }, { token: COMPOSITION_BUFFER_MODE, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
+    static ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "20.0.4", type: MaskedInputDirective, isStandalone: true, selector: "[textMask]", inputs: { textMaskConfig: ["textMask", "textMaskConfig"] }, host: { listeners: { "input": "_handleInput($event.target.value)", "blur": "onTouched()", "compositionstart": "_compositionStart()", "compositionend": "_compositionEnd($event.target.value)" } }, providers: [MASKEDINPUT_VALUE_ACCESSOR], exportAs: ["textMask"], usesOnChanges: true, ngImport: i0 });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: MaskedInputDirective, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: MaskedInputDirective, decorators: [{
             type: Directive,
             args: [{
                     host: {
@@ -4167,8 +4167,8 @@ class NgxBrazil {
             ngModule: NgxBrazil
         };
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: NgxBrazil, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.1.4", ngImport: i0, type: NgxBrazil, imports: [CellphoneValidator,
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: NgxBrazil, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "20.0.4", ngImport: i0, type: NgxBrazil, imports: [CellphoneValidator,
             CellphonePipe,
             CEPValidator,
             CEPPipe,
@@ -4229,9 +4229,9 @@ class NgxBrazil {
             TITULOValidator,
             TITULOPipe,
             MaskedInputDirective] });
-    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: NgxBrazil });
+    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: NgxBrazil });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.4", ngImport: i0, type: NgxBrazil, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.4", ngImport: i0, type: NgxBrazil, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [],
