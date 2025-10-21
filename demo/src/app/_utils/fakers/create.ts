@@ -69,7 +69,7 @@ export function createCnh(value: string): string {
 
 // Função para criar CNPJ
 export function createCnpj(cnpj: string): number[] {
-  const cnpjWithoutDigits = cnpj.replace(/[^\d]+/g, '').substring(0, 12);
+  const cnpjWithoutDigits = cnpj.replace(/[^0-9A-Za-z]+/g, '').substring(0, 12);
 
   const firstDigit = calcularDigitoVerificadorCnpj(cnpjWithoutDigits, 12);
   const secondDigit = calcularDigitoVerificadorCnpj(`${cnpjWithoutDigits}${firstDigit}`, 13);
@@ -191,7 +191,7 @@ function calcularDigitoVerificadorCnpj(cnpj: string, tamanho: number): number {
   let pos = tamanho - 7;
 
   for (let i = 0; i < tamanho; i++) {
-    soma += parseInt(cnpj.charAt(i), 10) * pos--;
+    soma += (cnpj.charCodeAt(i) - 48) * pos--;
     if (pos < 2) {
       pos = 9;
     }
@@ -303,8 +303,8 @@ function isValidCnpj(cnpj: string): boolean {
 }
 
 export function validarDigitosCnpj(cnpj: string): boolean {
-  // Remove caracteres não numéricos
-  cnpj = cnpj.replace(/[^\d]+/g, '');
+  // Remove caracteres inválidos
+  cnpj = cnpj.replace(/[^[0-9A-Za-z]+/g, '');
 
   // O CNPJ precisa ter exatamente 14 dígitos
   if (cnpj.length !== 14 || !isValidCnpj(cnpj)) {
@@ -314,14 +314,14 @@ export function validarDigitosCnpj(cnpj: string): boolean {
   // Cálculo do primeiro dígito verificador
   const primeiroDigitoCalculado = calcularDigitoVerificadorCnpj(cnpj, 12);
   console.log(primeiroDigitoCalculado, parseInt(cnpj.charAt(12), 10))
-  if (primeiroDigitoCalculado !== parseInt(cnpj.charAt(12), 10)) {
+  if (primeiroDigitoCalculado !== (cnpj.charCodeAt(12) - 48)) {
     return false;
   }
 
   // Cálculo do segundo dígito verificador
   const segundoDigitoCalculado = calcularDigitoVerificadorCnpj(cnpj, 13);
   console.log(segundoDigitoCalculado, parseInt(cnpj.charAt(13), 10))
-  if (segundoDigitoCalculado !== parseInt(cnpj.charAt(13), 10)) {
+  if (segundoDigitoCalculado !== (cnpj.charCodeAt(13) - 48)) {
     return false;
   }
 

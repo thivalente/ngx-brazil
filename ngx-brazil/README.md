@@ -10,7 +10,7 @@ Supports: Angular 15 to Angular 20
 
 * Angular version 20.x.x
 
-` npm install --save ngx-brazil@20.0.4`
+` npm install --save ngx-brazil@20.1.1`
 
 * Angular version 19.x.x
 

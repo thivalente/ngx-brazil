@@ -1,8 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
-import { NgxBrazilValidators } from '../../../ngx-brazil/src/public_api';
-import { fakerBr } from '../../../ngx-brazil/src/_utils/fakers/faker';
+import { NgxBrazilValidators } from 'public_api';
+import { fakerBr } from '../../../../ngx-brazil/src/_utils/fakers/faker';
 
 @Injectable({ providedIn: 'root' })
 export class DemoService {

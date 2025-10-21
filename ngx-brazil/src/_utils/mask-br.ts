@@ -16,7 +16,7 @@ const maskNumber: any = {
 
 export const MASKS: BigObject<MaskType> = {
   aih: {
-    text: '000000000000-0', 
+    text: '000000000000-0',
     textMask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/]
   },
   cartaocredito: {
@@ -32,11 +32,11 @@ export const MASKS: BigObject<MaskType> = {
     textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]
   },
   certidao: {
-    text: '000000.00.00.0000.0.00000.000.0000000-00', 
+    text: '000000.00.00.0000.0.00000.000.0000000-00',
     textMask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/, '.', /\d/, '.', /\d/, /\d/, /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/]
   },
   chassi: {
-    text: 'AAA AAAAAA AA AA0000', 
+    text: 'AAA AAAAAA AA AA0000',
     textMask: [/[1-9]/, /\w/, /\w/, ' ', /\w/, /\w/, /\w/, /\w/, /\w/, /\w/, ' ', /\w/, /\w/, ' ', /\w/, /\w/, /\d/, /\d/, /\d/, /\d/]
   },
   cid: {
@@ -63,8 +63,8 @@ export const MASKS: BigObject<MaskType> = {
     textMask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
   },
   cnpj: {
-    text: '00.000.000/0000-00',
-    textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/]
+    text: 'AA.AAA.AAA/AAAA-AA',
+    textMask: [/[0-9A-Za-z]/, /[0-9A-Za-z]/, '.', /[0-9A-Za-z]/, /[0-9A-Za-z]/, /[0-9A-Za-z]/, '.', /[0-9A-Za-z]/, /[0-9A-Za-z]/, /[0-9A-Za-z]/, '/', /[0-9A-Za-z]/, /[0-9A-Za-z]/, /[0-9A-Za-z]/, /[0-9A-Za-z]/, '-', /[0-9A-Za-z]/, /[0-9A-Za-z]/]
   },
   cns: {
     text: '000 0000 0000 00-00',

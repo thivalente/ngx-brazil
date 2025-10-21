@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { DemoService } from '../demo.service';
-import { NgxBrazilMASKS, NgxBrazilMASKSIE } from '../../../../ngx-brazil/src/public_api';
+import { NgxBrazilMASKS, NgxBrazilMASKSIE } from 'public_api';
 
 @Component({
     selector: 'app-with-reactive-forms', templateUrl: './demo-with-reactive-forms.component.html', styleUrls: ['./demo-with-reactive-forms.component.scss'],

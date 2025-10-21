@@ -23,7 +23,7 @@ npm run start
 npm uninstall ngx-brazil
 ```
 
-### If there is this folder ngx-brazil\dist\ngx-brazil:
+### If there is the folder ngx-brazil\dist\ngx-brazil:
 Go to ngx-brazil\dist\ngx-brazil and run e clean the cache:
 ```
 npm unlink ngx-brazil
@@ -33,6 +33,7 @@ cd ..\..
 ```
 
 ### Generate the dist and create local link (symlink)
+Go to ngx-brazil folder and run:
 ```
 npm run build:lib
 cd dist/ngx-brazil
@@ -49,3 +50,35 @@ npm link ngx-brazil
 ng serve
 
 ```
+
+### After the tests, clean up:
+Go again to ngx-brazil\dist\ngx-brazil and run e clean the cache:
+```
+npm unlink ngx-brazil
+ng cache clean
+npm cache clean --force
+```
+
+## Upload to npm
+1. Update the version in [README.md](./ngx-brazil/README.md) [package.json](./ngx-brazil/package.json) and [src/package.json](./ngx-brazil/package-install.json).
+Go to ngx-brazil folder and run:
+```
+npm run build:lib
+cd dist/ngx-brazil
+npm login
+npm publish
+```
+
+## Upload to Stackblitz
+1. Go to [https://stackblitz.com/edit/ngx-brazil](https://stackblitz.com/edit/ngx-brazil)
+2. Login with GitHub
+3. Open the file `package.json` and update the version to the new one
+4. Run the command in the terminal:
+```
+npm install ngx-brazil@<new_version>
+ng serve
+```
+
+### Next Steps
+1. Separate demo project repository from the main project
+2. Update Stackblitz link to point to the new demo project

@@ -8,7 +8,7 @@
             <button type="button" (click)="generate('cpf')">Generate CPF</button>
             <span *ngIf="generated.cpf">Generated CPF: <b>{{generated.cpf}}</b></span>
         </div>
-        <small class="example">Get working example at: <a href="http://www.geradorbrasileiro.com/cpf.html" target="_blank">CPF Generator</a></small>
+        <small class="example">Get working example at: <a href="https://www.geradordecpf.org" target="_blank">CPF Generator</a></small>
         <span *ngIf="formData.cpf">CPF: {{formData.cpf}}</span>
         <app-error-container [errors]="formDataValidate.cpf" [fieldName]="'CPF'"></app-error-container>
       </div>
@@ -20,7 +20,7 @@
             <button type="button" (click)="generate('cnpj')">Generate CNPJ</button>
             <span *ngIf="generated.cnpj">Generated CNPJ: <b>{{generated.cnpj}}</b></span>
         </div>
-        <small class="example">Get working example at: <a href="http://www.geradorbrasileiro.com/cnpj.html" target="_blank">CNPJ Generator</a></small>
+        <small class="example">Get working example at: <a href="https://www.geradorcnpj.com" target="_blank">CNPJ Generator</a></small>
         <span *ngIf="formData.cnpj">CNPJ: {{formData.cnpj}}</span>
         <app-error-container [errors]="formDataValidate.cnpj" [fieldName]="'CNPJ'"></app-error-container>
       </div>
