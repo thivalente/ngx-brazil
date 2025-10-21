@@ -1,1 +1,29 @@
-node_modules
+# compiled output
+*/dist
+*/dist-server
+*/tmp
+*/out-tsc
+
+# dependencies
+*/node_modules
+
+# IDEs and editors
+*/.idea
+*/.angular
+
+# misc
+*/.sass-cache
+*/connect.lock
+*/coverage
+*/libpeerconnection.log
+*/npm-debug.log
+*/yarn-error.log
+*/testem.log
+*/typings
+
+# System Files
+*/.DS_Store
+*/Thumbs.db
+*/.vs/Partsfy.App/config
+*/.vs
+*/.vscode
