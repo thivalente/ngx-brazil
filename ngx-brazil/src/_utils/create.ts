@@ -54,7 +54,7 @@ export function createRenachSeguranca(value: string): string {
   if (value.length !== 11) {
     return '';
   }
-  
+
   return "" + modulo11Custom(value.substr(0, value.length - 1), 1, 11);
 }
 
@@ -68,7 +68,7 @@ export function createCnh(value: string): string {
 }
 
 export function createCnpj(cnpj: string): number[] {
-  const cnpjWithoutDigits = cnpj.replace(/[^\d]+/g, '').substring(0, 12);
+  const cnpjWithoutDigits = cnpj.replace(/[^0-9A-Za-z]+/g, '').substring(0, 12);
 
   const firstDigit = calcularDigitoVerificadorCnpj(cnpjWithoutDigits, 12);
   const secondDigit = calcularDigitoVerificadorCnpj(`${cnpjWithoutDigits}${firstDigit}`, 13);
@@ -165,8 +165,8 @@ function calcularDigitoCertidao(value: string, fator: number): number {
 }
 
 export function validarDigitosCnpj(cnpj: string): boolean {
-  // Remove caracteres não numéricos
-  cnpj = cnpj.replace(/[^\d]+/g, '');
+  // Remove caracteres inválidos
+  cnpj = cnpj.replace(/[^[0-9A-Za-z]+/g, '');
 
   // O CNPJ precisa ter exatamente 14 dígitos
   if (cnpj.length !== 14 || !isValidCnpj(cnpj)) {
@@ -175,15 +175,15 @@ export function validarDigitosCnpj(cnpj: string): boolean {
 
   // Cálculo do primeiro dígito verificador
   const primeiroDigitoCalculado = calcularDigitoVerificadorCnpj(cnpj, 12);
-  
-  if (primeiroDigitoCalculado !== parseInt(cnpj.charAt(12), 10)) {
+
+  if (primeiroDigitoCalculado !== (cnpj.charCodeAt(12) - 48)) {
     return false;
   }
 
   // Cálculo do segundo dígito verificador
   const segundoDigitoCalculado = calcularDigitoVerificadorCnpj(cnpj, 13);
-  
-  if (segundoDigitoCalculado !== parseInt(cnpj.charAt(13), 10)) {
+
+  if (segundoDigitoCalculado !== (cnpj.charCodeAt(13) - 48)) {
     return false;
   }
 
@@ -195,7 +195,7 @@ function calcularDigitosCnpj(cnpj: string): number[] {
   let soma = 0;
   let pos = cnpj.length - 7;
   for (let i = 0; i < 12; i++) {
-    soma += parseInt(cnpj.charAt(i), 10) * pos--;
+    soma += (cnpj.charCodeAt(i) - 48) * pos--;
     if (pos < 2) pos = 9;
   }
   resultados.push(soma % 11 < 2 ? 0 : 11 - soma % 11);
@@ -203,7 +203,7 @@ function calcularDigitosCnpj(cnpj: string): number[] {
   soma = 0;
   pos = cnpj.length - 7;
   for (let i = 0; i < 13; i++) {
-    soma += parseInt(cnpj.charAt(i), 10) * pos--;
+    soma += (cnpj.charCodeAt(i) - 48) * pos--;
     if (pos < 2) pos = 9;
   }
   resultados.push(soma % 11 < 2 ? 0 : 11 - soma % 11);
@@ -216,7 +216,7 @@ function calcularDigitoVerificadorCnpj(cnpj: string, tamanho: number): number {
   let pos = tamanho - 7;
 
   for (let i = 0; i < tamanho; i++) {
-    soma += parseInt(cnpj.charAt(i), 10) * pos--;
+    soma += (cnpj.charCodeAt(i) - 48) * pos--;
     if (pos < 2) {
       pos = 9;
     }

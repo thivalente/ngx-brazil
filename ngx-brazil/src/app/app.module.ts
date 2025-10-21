@@ -12,7 +12,7 @@ import { ErrorContainerComponent } from './demo/errors-area/error-container.comp
 
 import { DemoWithoutMaskComponent } from './demo/without-mask/demo-without-mask.component';
 import { DemoService } from './demo/demo.service';
-import { NgxBrazil } from '../../ngx-brazil/src/public_api';
+import { NgxBrazil } from 'lib.module';
 
 export const routes: Routes = [
   { path: '', component: DemoComponent }

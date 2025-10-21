@@ -138,11 +138,11 @@ export const makeGenericFaker = (val: any, options: BigObject<Function> | null =
           return Math.floor(Math.random() * 10).toString()
         } else if (c === /[A-Za-z]/.toString()) {
           return randomLetter(1).toString();
-        } else if (c === /\w/.toString()) {
-          return randomLetterOrNumber(1).toString();
+        } else if (c === /\w/.toString() || c === /[0-9A-Za-z]/.toString()) {
+          return randomLetterOrNumber(1, c === /[0-9A-Za-z]/.toString()).toString();
         } else if (c.indexOf('/[') === 0) { // /[1-9]/ ou /[5-9]/
           c = c.replace('/[', '').replace(']/', '');
-  
+
           if (c.indexOf('-') > 0) {
             c = c.split('-');
             if (parseInt(c[1])) {
@@ -157,7 +157,7 @@ export const makeGenericFaker = (val: any, options: BigObject<Function> | null =
             const index = Math.floor(Math.random() * c.length);
             return c[index];
           }
-  
+
         } else {
           return c;
         }
