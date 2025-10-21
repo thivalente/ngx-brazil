@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+      <section class="col mb-4">
+        <div class="component-section">
+          <h2>With Reactive Forms</h2>
+          <app-with-reactive-forms></app-with-reactive-forms>
+        </div>
+      </section>
+      
+      <section class="col mb-4">
+        <div class="component-section">
+          <h2>Without Mask</h2>
+          <app-without-mask></app-without-mask>
+        </div>
+      </section>
+    </div>
+  
+    <div class="row">
+      <section class="col mb-4">
+        <div class="component-section">
+          <h2>Without Forms</h2>
+          With ngModel initial value:
+          <input id="mask-currencyNumber" type="text" currency [textMask]="{mask: MASKS.currency.textMask}"
+            (ngModelChange)="currencyNumber = $event" [ngModel]="MASKS.utils.numberToString(currencyNumber)">
+        </div>
+      </section>
+  
+      <section class="col mb-4">
+        <div class="component-section">
+          <h2>Pipes</h2>
+          <app-as-pipes></app-as-pipes>
+        </div>
+      </section>
+    </div>
+  </div>
+  

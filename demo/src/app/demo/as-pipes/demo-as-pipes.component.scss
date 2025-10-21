@@ -1,0 +1,16 @@
+section.as-pipes {
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 500;
+    }
+  
+    .row {
+      margin-bottom: 1rem;
+  
+      .col {
+        strong { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+      }
+    }
+  
+    .pipe-result { color: #007bff; font-style: italic; }
+}
