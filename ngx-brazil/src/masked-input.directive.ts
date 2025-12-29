@@ -33,10 +33,10 @@ export function _isAndroid(): boolean {
 
 @Directive({
   host: {
-    '(input)': '_handleInput($event.target.value)',
+    '(input)': '_handleInput($event)',
     '(blur)': 'onTouched()',
     '(compositionstart)': '_compositionStart()',
-    '(compositionend)': '_compositionEnd($event.target.value)'
+    '(compositionend)': '_compositionEnd($event)'
   },
   /* tslint:disable: directive-selector */
   selector: '[textMask]',
@@ -98,8 +98,9 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
     this._renderer.setProperty(this._elementRef.nativeElement, 'disabled', isDisabled)
   }
 
+  _handleInput(event: Event) {
+    let value = (event.target as HTMLInputElement).value;
 
-  _handleInput(value) {
     if (!this._compositionMode || (this._compositionMode && !this._composing)) {
       this._setupMask()
 
@@ -134,10 +135,10 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
 
   _compositionStart(): void { this._composing = true }
 
-  _compositionEnd(value: any): void {
+  _compositionEnd(event: Event) {
     this._composing = false
     if (this._compositionMode) {
-      this._handleInput(value)
+      this._handleInput(event)
     }
   }
 }

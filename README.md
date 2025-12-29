@@ -4,9 +4,13 @@ Forked from https://github.com/mariohmol/ng-brazil
 
 Contains pipes / directives / validators / mask for brazillian like apps
 
-Supports: Angular 15 to Angular 20
+Supports: Angular 15 to Angular 21
 
 ## Installing:  
+
+* Angular version 21.x.x
+
+` npm install --save ngx-brazil@21.0.0`
 
 * Angular version 20.x.x
 
