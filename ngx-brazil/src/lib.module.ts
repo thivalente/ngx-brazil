@@ -216,17 +216,13 @@ export const NgxBrazilDirectives = {
 };
 
 @NgModule({
-  declarations: [ ],
   imports: [ NgxBrazilCustomDirectives ],
   exports: [ NgxBrazilCustomDirectives ]
 })
-class NgxBrazil {
+export class NgxBrazil {
   public static forRoot(): ModuleWithProviders<NgxBrazil> {
     return {
       ngModule: NgxBrazil
     };
   }
-}
-export {
-  NgxBrazil
 }

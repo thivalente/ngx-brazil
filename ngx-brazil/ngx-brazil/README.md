@@ -1,198 +1,397 @@
-# Ngx-Brazil
+# Ngx-Brazil 🇧🇷
 
-Forked from https://github.com/mariohmol/ng-brazil
+> Biblioteca Angular com pipes, diretivas, validadores e máscaras para aplicações brasileiras
 
-Contains pipes / directives / validators / mask for brazillian like apps
+[![npm version](https://img.shields.io/npm/v/ngx-brazil.svg)](https://www.npmjs.com/package/ngx-brazil)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Angular](https://img.shields.io/badge/Angular-21.0.0-red.svg)](https://angular.io/)
 
-Supports: Angular 15 to Angular 20
+**Ngx-Brazil** é uma biblioteca completa para trabalhar com dados brasileiros em aplicações Angular. Fornece validação, formatação e máscaras para documentos, telefones, endereços e outros dados específicos do Brasil.
 
-## Installing:  
+> **Nota:** Este projeto é um fork de [ng-brazil](https://github.com/mariohmol/ng-brazil) mantido e atualizado para versões mais recentes do Angular.
 
-* Angular version 20.x.x
+---
 
-` npm install --save ngx-brazil@20.1.1`
+## 📦 Instalação
 
-* Angular version 19.x.x
+### Angular 21.x.x
 
-` npm install --save ngx-brazil@19.0.0`
+```bash
+npm install --save ngx-brazil@21.0.0
+```
 
-* Angular version 18.x.x
+### Versões anteriores
 
-` npm install --save ngx-brazil@18.0.4`
+```bash
+# Angular 20.x.x
+npm install --save ngx-brazil@20.1.1
 
-* Angular version 17.x.x
+# Angular 19.x.x
+npm install --save ngx-brazil@19.0.0
 
-` npm install --save ngx-brazil@17.0.0`
+# Angular 18.x.x
+npm install --save ngx-brazil@18.0.4
 
-* Angular version 16.x.x
+# Angular 17.x.x
+npm install --save ngx-brazil@17.0.0
 
-` npm install --save ngx-brazil@16.0.0`
+# Angular 16.x.x
+npm install --save ngx-brazil@16.0.0
 
-* Angular version 15.x.x
+# Angular 15.x.x
+npm install --save ngx-brazil@15.0.0
+```
 
-` npm install --save ngx-brazil@15.0.0`
+---
 
+## ✨ Funcionalidades
 
+### Documentos
+- ✅ **CPF** - Validação, formatação e máscara
+- ✅ **CNPJ** - Validação, formatação e máscara
+- ✅ **RG** - Validação, formatação e máscara
+- ✅ **Título de Eleitor** - Validação e formatação
+- ✅ **PIS/PASEP** - Validação e formatação
 
-This project was tested integrated with the following techs:
+### Endereço e Localização
+- ✅ **CEP** - Validação, formatação e máscara
+- ✅ **Inscrição Estadual** - Validação por estado e formatação
 
-* angular
-* angular-material
-* ionic3 (masks is not fully working, that is an issue for that, but pipes/directives/validators/mask works)
+### Veículos
+- ✅ **Placa de Veículo** - Validação e formatação
+- ✅ **RENAVAM** - Validação e formatação
 
-Modules:
+### Contato
+- ✅ **Telefone Fixo** - Validação, formatação e máscara
+- ✅ **Celular** - Validação, formatação e máscara
 
-* CPF 
-* CNPJ
-* RG
-* Inscrição Estadual
-* PhoneNumber and Cellphone
-* CEP
-* Currency (Money)
-* Time (Hour and minutes)
-* Number (Number and decimal)
-* License Plate
-* Renavam
-* Título de Eleitor
-* Proceso Jurídico
+### Formatação
+- ✅ **Moeda (R$)** - Formatação brasileira
+- ✅ **Número** - Formatação com separadores brasileiros
+- ✅ **Percentual** - Formatação de percentuais
+- ✅ **Hora** - Formatação de horários
 
+---
 
-See the demo working project:
-[https://stackblitz.com/edit/ngx-brazil]
+## 🚀 Uso Rápido
 
-![Demo Image](https://github.com/thivalente/ngx-brazil/blob/main/src/assets/print.png)
+### Com Standalone Components (Angular 14+)
 
- 
-## Usage
+```typescript
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NgxBrazil, NgxBrazilMASKS, NgxBrazilValidators } from 'ngx-brazil';
 
-### Configuration
-
-Import module in root
-
-```ts
-import { NgxBrazil } from 'ngx-brazil' 
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
+@Component({
+  selector: 'app-root',
+  standalone: true,
   imports: [
-    ....,
+    ReactiveFormsModule,
     NgxBrazil
   ],
-  providers: [],
+  template: `
+    <form [formGroup]="form">
+      <input 
+        type="text" 
+        formControlName="cpf" 
+        cpf 
+        [textMask]="{mask: MASKS.cpf.textMask}"
+        placeholder="CPF">
+      
+      <input 
+        type="text" 
+        formControlName="cnpj" 
+        cnpj 
+        [textMask]="{mask: MASKS.cnpj.textMask}"
+        placeholder="CNPJ">
+    </form>
+  `
+})
+export class AppComponent {
+  public MASKS = NgxBrazilMASKS;
+  public form: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      cpf: ['', [Validators.required, NgxBrazilValidators.cpf]],
+      cnpj: ['', [Validators.required, NgxBrazilValidators.cnpj]]
+    });
+  }
+}
+```
+
+### Com NgModule (Compatibilidade)
+
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxBrazil } from 'ngx-brazil';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    NgxBrazil
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 ```
 
+---
 
-#### Using Masks
+## 📖 Exemplos de Uso
 
-Setup your component:
+### Validadores em Formulários Reativos
 
-```ts
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { NgxBrazilMASKS, NgxBrazilValidators } from 'ngx-brazil';
+```typescript
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgxBrazilValidators } from 'ngx-brazil';
 
-@Component({
-  selector: 'app-root',
-  template: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  public MASKS: any = NgxBrazilMASKS;
-  public estado: string = 'SP';
-  public formFields: any;
-  public form?: FormGroup;
-  
-  constructor(public fb: FormBuilder) { 
-    this.formFields = {
-      estado: [''],
-      cpf: ['', [<any>Validators.required, <any>NgxBrazilValidators.cpf]],
-      cnpj: ['', [<any>Validators.required, <any>NgxBrazilValidators.cnpj]],
-      rg: ['', [<any>Validators.required, <any>NgxBrazilValidators.rg]],
-      cep: ['', [<any>Validators.required, <any>NgxBrazilValidators.cep]],
-      phoneNumber: ['', [<any>Validators.required, <any>NgxBrazilValidators.phoneNumber]],
-      inscricaoestadual: ['', [<any>Validators.required, <any>NgxBrazilValidators.inscricaoestadual(this.estado)]]
-    };
-    this.form = this.fb.group(this.formFields);
+export class MyComponent {
+  form: FormGroup;
+  estado = 'SP';
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      cpf: ['', [Validators.required, NgxBrazilValidators.cpf]],
+      cnpj: ['', [Validators.required, NgxBrazilValidators.cnpj]],
+      rg: ['', [Validators.required, NgxBrazilValidators.rg]],
+      cep: ['', [Validators.required, NgxBrazilValidators.cep]],
+      phoneNumber: ['', [Validators.required, NgxBrazilValidators.phoneNumber]],
+      inscricaoestadual: [
+        '', 
+        [Validators.required, NgxBrazilValidators.inscricaoestadual(this.estado)]
+      ]
+    });
   }
-
 }
 ```
 
-## Forms and Mask
+### Máscaras em Inputs
 
 ```html
-<input type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}">
-<input type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}">
-<input type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> 
-<input type="text" formControlName="inscricaoestadual" inscricaoestadual="sp" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
-<input type="text" formControlName="phoneNumber" phoneNumber #phoneNumber [textMask]="{mask: MASKS.phoneNumber.textMaskFunction}">
-<input type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
+<!-- CPF -->
+<input 
+  type="text" 
+  formControlName="cpf" 
+  cpf 
+  [textMask]="{mask: MASKS.cpf.textMask}">
 
-<input type="text" formControlName="number" number [textMask]="{mask: MASKS.number.textMask}">
+<!-- CNPJ -->
+<input 
+  type="text" 
+  formControlName="cnpj" 
+  cnpj 
+  [textMask]="{mask: MASKS.cnpj.textMask}">
+
+<!-- Telefone -->
+<input 
+  type="text" 
+  formControlName="phoneNumber" 
+  phoneNumber 
+  [textMask]="{mask: MASKS.phoneNumber.textMaskFunction}">
+
+<!-- CEP -->
+<input 
+  type="text" 
+  formControlName="cep" 
+  cep 
+  [textMask]="{mask: MASKS.cep.textMask}">
+
+<!-- Inscrição Estadual -->
+<input 
+  type="text" 
+  formControlName="inscricaoestadual" 
+  inscricaoestadual="sp" 
+  [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
 ```
 
-## Pipes
+### Pipes para Formatação
 
 ```html
-CPF: From 12345678910 to {{'12345678910' | cpf}} <br/>
-CNPJ: From 40841253000102 to {{'40841253000102' | cnpj}} <br/>
-RG: From MG10111222 to {{'MG10111222' | rg}} <br/>
-Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadual: 'mg'}} <br/>
-Phone Number: From 1139998888 to {{'1139998888' | phoneNumber}} <br/>
-Number: From 123.23 to {{'123.23' | numberBrazil}} <br/>
-Number sem decimais: From 123.23 to {{'123.23' | numberBrazil: 0}} <br/>
-Currency: From 123.23 to {{'123.23' | currencyBrazil}} <br/>
+<!-- CPF -->
+<p>CPF: {{ '12345678910' | cpf }}</p>
+<!-- Resultado: 123.456.789-10 -->
+
+<!-- CNPJ -->
+<p>CNPJ: {{ '40841253000102' | cnpj }}</p>
+<!-- Resultado: 40.841.253/0001-02 -->
+
+<!-- RG -->
+<p>RG: {{ 'MG10111222' | rg }}</p>
+<!-- Resultado: MG-10.111.222 -->
+
+<!-- Inscrição Estadual -->
+<p>IE: {{ '0018192630048' | inscricaoestadual: 'mg' }}</p>
+<!-- Resultado: 001.819.263/0048 -->
+
+<!-- Telefone -->
+<p>Telefone: {{ '1139998888' | phoneNumber }}</p>
+<!-- Resultado: (11) 3999-8888 -->
+
+<!-- Moeda -->
+<p>Valor: {{ '123.23' | currencyBrazil }}</p>
+<!-- Resultado: R$ 123,23 -->
+
+<!-- Número -->
+<p>Número: {{ '123.23' | numberBrazil }}</p>
+<!-- Resultado: 123,23 -->
+
+<!-- Número sem decimais -->
+<p>Número: {{ '123.23' | numberBrazil: 0 }}</p>
+<!-- Resultado: 123 -->
 ```
 
-```ts
-import { Component } from '@angular/core';
-import { NgxBrazil } from 'ngx-brazil';
+---
 
-@Component({
-  selector: 'app-root',
-  template: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  
-}
+## 🛠️ Tecnologias Compatíveis
+
+Este projeto foi testado e é compatível com:
+
+- ✅ Angular 15, 16, 17, 18, 19, 20 e 21
+- ✅ Angular Material
+- ✅ Ionic (pipes, diretivas e validadores funcionam; máscaras podem ter limitações)
+
+---
+
+## 📚 API Reference
+
+### Validadores
+
+Todos os validadores estão disponíveis em `NgxBrazilValidators`:
+
+```typescript
+import { NgxBrazilValidators } from 'ngx-brazil';
+
+// Uso em FormControl
+const cpfControl = new FormControl('', [
+  Validators.required,
+  NgxBrazilValidators.cpf
+]);
 ```
 
-# Demo
+**Validadores disponíveis:**
+- `cpf` - Valida CPF
+- `cnpj` - Valida CNPJ
+- `rg` - Valida RG
+- `cep` - Valida CEP
+- `phoneNumber` - Valida telefone fixo
+- `cellphone` - Valida celular
+- `inscricaoestadual(estado)` - Valida Inscrição Estadual (requer estado)
+- `renavam` - Valida RENAVAM
+- `pispasep` - Valida PIS/PASEP
+- `licensePlate` - Valida placa de veículo
+- `titulo` - Valida Título de Eleitor
+- `currency` - Valida moeda
+- `number` - Valida número
+- `time` - Valida horário
+- `percentage` - Valida percentual
 
-Demo component files are included in Git Project.
+### Máscaras
 
-Demo Project:
-[https://stackblitz.com/edit/ngx-brazil]
+Todas as máscaras estão disponíveis em `NgxBrazilMASKS`:
 
-Reference projects:
+```typescript
+import { NgxBrazilMASKS } from 'ngx-brazil';
 
-* https://github.com/thivalente/ngx-brazil
-* https://github.com/mariohmol/ng-brazil
+// Uso em componente
+public MASKS = NgxBrazilMASKS;
+```
 
+### Pipes
 
+Todos os pipes podem ser usados diretamente nos templates:
 
-## Collaborate
+- `cpf` - Formata CPF
+- `cnpj` - Formata CNPJ
+- `rg` - Formata RG
+- `cep` - Formata CEP
+- `phoneNumber` - Formata telefone
+- `cellphone` - Formata celular
+- `inscricaoestadual` - Formata Inscrição Estadual (requer estado como parâmetro)
+- `currencyBrazil` - Formata moeda brasileira
+- `numberBrazil` - Formata número brasileiro
+- `time` - Formata horário
+- `percentage` - Formata percentual
 
-Fork this project then install global libs:
+---
 
-*  npm i -g rimraf ng-packagr @angular/compiler-cli @angular/compiler tslib ngc
+## 🎯 Demo
 
-Finally working in the project folder:
+Veja a biblioteca em ação:
 
-* npm i
-* npm run build:lib
-* npm run dist
-* npm run start
+- 🌐 [Demo Online no StackBlitz](https://stackblitz.com/edit/ngx-brazil)
+- 📦 [Repositório no GitHub](https://github.com/thivalente/ngx-brazil)
 
-To publish a new release, update the version in [package.json](./package.json) and [src/package.json](./src/package.json),
-then run `npm run publish-npm`.
+![Demo Image](https://raw.githubusercontent.com/thivalente/ngx-brazil/main/ngx-brazil/src/assets/print.png)
 
-# License
+---
 
-MIT(./LICENSE)
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Por favor, leia nosso [Guia de Contribuição](https://github.com/thivalente/ngx-brazil/blob/main/ngx-brazil/CONTRIBUTING.md) e [Código de Conduta](https://github.com/thivalente/ngx-brazil/blob/main/ngx-brazil/CODE_OF_CONDUCT.md) antes de começar.
+
+### Setup de Desenvolvimento
+
+1. Faça um fork do projeto
+2. Instale as dependências globais:
+   ```bash
+   npm i -g rimraf ng-packagr @angular/compiler-cli @angular/compiler tslib
+   ```
+3. Clone e instale as dependências:
+   ```bash
+   git clone https://github.com/seu-usuario/ngx-brazil.git
+   cd ngx-brazil/ngx-brazil
+   npm install
+   ```
+4. Compile a biblioteca:
+   ```bash
+   npm run build:lib
+   ```
+5. Execute o projeto de demonstração:
+   ```bash
+   npm run start
+   ```
+
+### Publicando uma Nova Versão
+
+1. Atualize a versão em:
+   - `ngx-brazil/package.json`
+   - `ngx-brazil/ngx-brazil/package.json`
+   - `README.md` (seções de instalação)
+2. Compile e publique:
+   ```bash
+   npm run build:lib
+   cd dist/ngx-brazil
+   npm login
+   npm publish
+   ```
+
+---
+
+## 📝 Licença
+
+Este projeto está licenciado sob a [MIT License](https://github.com/thivalente/ngx-brazil/blob/main/ngx-brazil/LICENSE).
+
+---
+
+## 🙏 Agradecimentos
+
+Este projeto é um fork de [ng-brazil](https://github.com/mariohmol/ng-brazil) criado por [Mario Mol](https://github.com/mariohmol). Agradecemos ao autor original por criar essa excelente base.
+
+---
+
+## 📞 Suporte
+
+- 📧 Email: thiago.valente@fitideias.com.br
+- 🐛 [Reportar Bug](https://github.com/thivalente/ngx-brazil/issues)
+- 💡 [Sugerir Feature](https://github.com/thivalente/ngx-brazil/issues)
+
+---
+
+**Desenvolvido com ❤️ para a comunidade Angular brasileira**

@@ -60,7 +60,7 @@ npm cache clean --force
 ```
 
 ## Upload to npm
-1. Update the version in [README.md](./ngx-brazil/README.md) [package.json](./ngx-brazil/package.json) and [src/package.json](./ngx-brazil/package-install.json).
+1. Update the version in [README.md](./README.md), [package.json](./package.json) and [ngx-brazil/package.json](./ngx-brazil/package.json).
 Go to ngx-brazil folder and run:
 ```
 npm run build:lib

@@ -1,12 +1,12 @@
 {
   "name": "ngx-brazil",
-  "version": "20.1.1",
+  "version": "21.0.0",
   "type": "commonjs",
   "license": "MIT",
   "homepage": "https://github.com/thivalente/ngx-brazil",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thivalente/ngx-brazil.git"
+    "url": "git+https://github.com/thivalente/ngx-brazil.git"
   },
   "author": "Thiago Valente <thiago.valente@fitideias.com.br> forked from Mario Mol <mariohmol@gmail.com>",
   "keywords": [
@@ -16,10 +16,10 @@
     "utils"
   ],
   "peerDependencies": {
-    "@angular/common": "^20.0.0",
-    "@angular/core": "^20.0.0",
-    "@angular/forms": "^20.0.0",
-    "@angular/platform-browser": "^20.0.0",
+    "@angular/common": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/forms": "^21.0.0",
+    "@angular/platform-browser": "^21.0.0",
     "rxjs": ">=6.5.3",
     "zone.js": ">=0.13.3"
   },
