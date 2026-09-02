@@ -1,13 +1,15 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { NGX_BRAZIL_VERSION } from './ngx-brazil-version';
 
 @Component({
-    selector: 'app-root',
-    imports: [CommonModule, RouterModule, RouterOutlet],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-root',
+  imports: [RouterModule, RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'ngx-brazil';
+  version = NGX_BRAZIL_VERSION;
 }

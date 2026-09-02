@@ -16,7 +16,19 @@ npm run dist
 npm run start
 ```
 
-## Internal Tests (using local link)
+## Internal Tests (demo local)
+
+A demo em `demo/` usa dependência local via `file:../ngx-brazil/dist/ngx-brazil`. Após alterar a lib:
+
+```
+cd ngx-brazil
+npm run build:lib
+cd ../demo
+npm install
+npm start
+```
+
+## Internal Tests (using npm link — legado)
 
 ### Uninstall ngx-brazil from npm
 ```
@@ -61,6 +73,8 @@ npm cache clean --force
 
 ## Upload to npm
 1. Update the version in [README.md](./README.md), [package.json](./package.json) and [ngx-brazil/package.json](./ngx-brazil/package.json).
+2. Sync the root [README.md](../README.md) to `ngx-brazil/README.md` and `ngx-brazil/ngx-brazil/README.md` (os três devem ser idênticos).
+
 Go to ngx-brazil folder and run:
 ```
 npm run build:lib
@@ -78,6 +92,8 @@ npm publish
 npm install ngx-brazil@<new_version>
 ng serve
 ```
+
+A versão exibida no header da demo (`demo/`) vem automaticamente de `ngx-brazil/package.json` via `demo/src/app/ngx-brazil-version.ts`. Ao publicar uma nova versão da lib, basta reinstalar/atualizar a dependência — não é preciso alterar o template.
 
 ### Next Steps
 1. Separate demo project repository from the main project

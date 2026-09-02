@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { maskBr } from '../_utils/mask-br';
 
 @Pipe({
+  standalone: true,
     name: 'cep',
 })
 export class CEPPipe implements PipeTransform {

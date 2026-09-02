@@ -1,0 +1,29 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/lib",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "types": [],
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false
+  },
+  "include": [
+    "../src/**/*.ts"
+  ],
+  "exclude": [
+    "../src/test.ts",
+    "../src/**/*.spec.ts",
+    "../src/app/**",
+    "../src/main.ts",
+    "../src/polyfills.ts",
+    "../src/environments/**"
+  ],
+  "angularCompilerOptions": {
+    "compilationMode": "partial",
+    "strictInjectionParameters": false,
+    "strictTemplates": false
+  }
+}

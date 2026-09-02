@@ -1,5 +1,5 @@
 import { Directive, forwardRef } from '@angular/core';
-import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
+import { NG_VALIDATORS, Validator, AbstractControl, ValidationErrors } from '@angular/forms';
 import { renavam } from './validator';
 
 const RENAVAM_VALIDATOR: any = {
@@ -10,12 +10,13 @@ const RENAVAM_VALIDATOR: any = {
 };
 
 @Directive({
+  standalone: true,
   // tslint:disable-next-line:directive-selector
   selector: '[renavam][formControlName],[renavam][formControl],[renavam][ngModel]',
   providers: [RENAVAM_VALIDATOR]
 })
 export class RenavamValidator implements Validator {
-  validate(c: AbstractControl): {[key: string]: any} {
+  validate(c: AbstractControl): ValidationErrors | null {
     return renavam(c);
   }
 }

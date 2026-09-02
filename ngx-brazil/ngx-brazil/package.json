@@ -1,6 +1,6 @@
 {
   "name": "ngx-brazil",
-  "version": "21.0.0",
+  "version": "22.0.0",
   "type": "commonjs",
   "license": "MIT",
   "homepage": "https://github.com/thivalente/ngx-brazil",
@@ -16,10 +16,10 @@
     "utils"
   ],
   "peerDependencies": {
-    "@angular/common": "^21.0.0",
-    "@angular/core": "^21.0.0",
-    "@angular/forms": "^21.0.0",
-    "@angular/platform-browser": "^21.0.0",
+    "@angular/common": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0",
+    "@angular/platform-browser": "^22.0.0",
     "rxjs": ">=6.5.3",
     "zone.js": ">=0.13.3"
   },
@@ -27,7 +27,7 @@
     "tslib": ">=2.3.0"
   },
   "devDependencies": {
-    "typescript": "^5.5"
+    "typescript": "^6.0.0"
   },
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",

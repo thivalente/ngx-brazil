@@ -4,7 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/ngx-brazil.svg)](https://www.npmjs.com/package/ngx-brazil)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Angular](https://img.shields.io/badge/Angular-21.0.0-red.svg)](https://angular.io/)
+[![Angular](https://img.shields.io/badge/Angular-22.0.0-red.svg)](https://angular.io/)
 
 **Ngx-Brazil** é uma biblioteca completa para trabalhar com dados brasileiros em aplicações Angular. Fornece validação, formatação e máscaras para documentos, telefones, endereços e outros dados específicos do Brasil.
 
@@ -14,33 +14,26 @@
 
 ## 📦 Instalação
 
-### Angular 21.x.x
+O **major** do `ngx-brazil` acompanha o **major** do Angular do seu projeto:
 
 ```bash
-npm install --save ngx-brazil@21.0.0
+npm install ngx-brazil@22
 ```
 
-### Versões anteriores
+| Angular | ngx-brazil |
+|--------|------------|
+| 22 | `22.x` |
+| 21 | `21.x` |
+| 20 | `20.x` |
+| 19 | `19.x` |
+| 18 | `18.x` |
+| 17 | `17.x` |
+| 16 | `16.x` |
+| 15 | `15.x` |
 
-```bash
-# Angular 20.x.x
-npm install --save ngx-brazil@20.1.1
+Para versões antigas ou patches específicos, consulte o [histórico no npm](https://www.npmjs.com/package/ngx-brazil?activeTab=versions).
 
-# Angular 19.x.x
-npm install --save ngx-brazil@19.0.0
-
-# Angular 18.x.x
-npm install --save ngx-brazil@18.0.4
-
-# Angular 17.x.x
-npm install --save ngx-brazil@17.0.0
-
-# Angular 16.x.x
-npm install --save ngx-brazil@16.0.0
-
-# Angular 15.x.x
-npm install --save ngx-brazil@15.0.0
-```
+> **Angular 22+** usa `ngx-brazil@22`. Projetos em Angular 21 devem permanecer em `@21`. A API de máscaras, validators e pipes é a mesma entre majors compatíveis.
 
 ---
 
@@ -251,11 +244,35 @@ export class MyComponent {
 
 ## 🛠️ Tecnologias Compatíveis
 
-Este projeto foi testado e é compatível com:
-
-- ✅ Angular 15, 16, 17, 18, 19, 20 e 21
+- ✅ **Angular:** use o major do `ngx-brazil` igual ao major do Angular (ex.: Angular 22 → `ngx-brazil@22`)
 - ✅ Angular Material
 - ✅ Ionic (pipes, diretivas e validadores funcionam; máscaras podem ter limitações)
+
+Versões legadas (15–21) seguem disponíveis no npm; não recebem novas features, apenas o major atual é mantido ativamente.
+
+---
+
+## 📦 Importação modular (standalone)
+
+Além do módulo `NgxBrazil`, pipes e diretivas podem ser importados individualmente:
+
+```typescript
+import { Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CPFPipe, CPFValidator, MaskedInputDirective } from 'ngx-brazil';
+
+@Component({
+  standalone: true,
+  imports: [ReactiveFormsModule, CPFPipe, CPFValidator, MaskedInputDirective],
+  template: `
+    <input formControlName="cpf" cpf [textMask]="{ mask: ['000.000.000-00'] }">
+    <p>{{ '12345678910' | cpf }}</p>
+  `
+})
+export class ExemploComponent {}
+```
+
+> **Depreciação:** `NgxBrazil.forRoot()` está obsoleto e será removido no major 23. Prefira `imports: [NgxBrazil]` ou imports standalone individuais.
 
 ---
 

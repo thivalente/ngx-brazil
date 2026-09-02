@@ -1,8 +1,8 @@
-@if (errors) {
+@if (errors()) {
     <p class="errors-container">
         Errors Found:
-        @for(error of objectKeys(errors); track errors) {
-            <span>{{error}} {{errors[error]}}</span>
+        @for (error of errorKeys(); track error) {
+            <span>{{ error }} {{ errors()![error] }}</span>
         }
     </p>
 }

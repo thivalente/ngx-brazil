@@ -35,7 +35,6 @@ export const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes, {})
   ],
-  providers: [DemoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

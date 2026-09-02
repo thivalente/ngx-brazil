@@ -1,47 +1,71 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  DestroyRef,
+  OnInit,
+  inject
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 
 import { DemoService } from '../demo.service';
 
 @Component({
-    selector: 'app-without-mask', templateUrl: './demo-without-mask.component.html', styleUrls: ['./demo-without-mask.component.scss'],
-    standalone: false
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-without-mask',
+  templateUrl: './demo-without-mask.component.html',
+  styleUrls: ['./demo-without-mask.component.scss'],
+  standalone: false
 })
 export class DemoWithoutMaskComponent implements OnInit {
-    public state = 'SP';
+  protected readonly demoService = inject(DemoService);
+  private readonly fb = inject(FormBuilder);
+  private readonly cdr = inject(ChangeDetectorRef);
+  private readonly destroyRef = inject(DestroyRef);
 
-    public formFields: any;
-    public formData: any = {};
-    public formDataValidate: any = {};
-    public formNoMask: any;
+  readonly states = this.demoService.states;
 
-    generated: any = {};
-    
-    constructor(public fb: FormBuilder, public demoService: DemoService) { }
+  state = 'SP';
+  formFields: any;
+  formData: any = {};
+  formDataValidate: any = {};
+  formNoMask?: FormGroup;
+  controls: Record<string, AbstractControl> = {};
+  generated: any = {};
 
-    ngOnInit(): void {
-      this.formFields = this.demoService.buildForm(this.state);
-      this.formNoMask = this.fb.group(this.formFields);
+  ngOnInit(): void {
+    this.formFields = this.demoService.buildForm(this.state);
+    this.formNoMask = this.fb.group(this.formFields);
+    this.controls = this.formNoMask.controls;
+    this.watchForm(this.formNoMask);
+  }
+
+  changeState(event: Event): void {
+    this.state = this.demoService.changeState(event);
+  }
+
+  generate(key: string): void {
+    this.generated = { ...this.generated, [key]: this.demoService.generate(key) };
+  }
+
+  submit(form: FormGroup): void {
+    if (form.valid) {
+      this.formData = form.value;
+      this.formDataValidate = {};
+      return;
     }
 
-    changeState(e: any) {
-      this.state = this.demoService.changeState(e);
-    }
+    this.demoService.markAllAsTouchedAndDirty(form);
+    this.formDataValidate = this.demoService.collectValidationErrors(form);
+    this.demoService.focusFirstInvalidControl(
+      form,
+      '.without-mask input, .without-mask select, .without-mask textarea'
+    );
+  }
 
-    generate(key: string) {
-      this.generated[key] = this.demoService.generate(key);
-    }
-  
-    submit(form: FormGroup) {
-        if (form.valid) {
-            this.formData = form.value;
-            this.formDataValidate = {};
-            return;
-        }
-        
-        this.demoService.markAllAsTouchedAndDirty(form);
-        this.formDataValidate = this.demoService.collectValidationErrors(form);
-
-        this.demoService.focusFirstInvalidControl(form, '.without-mask input, .without-mask select, .without-mask textarea');
-    }
+  private watchForm(form: FormGroup): void {
+    form.statusChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => this.cdr.markForCheck());
+    form.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => this.cdr.markForCheck());
+  }
 }

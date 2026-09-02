@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
-import { NgxBrazilMASKS } from '../../../../ngx-brazil/src/public_api';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+
+import { NgxBrazilMASKS } from 'public_api';
+import { DATARAW } from './as-pipes/_models/dataraw';
 
 @Component({
-    selector: 'app-demo', templateUrl: './demo.component.html', styleUrls: ['./demo.component.scss'],
-    standalone: false
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-demo',
+  templateUrl: './demo.component.html',
+  styleUrls: ['./demo.component.scss'],
+  standalone: false
 })
 export class DemoComponent {
-    public MASKS = NgxBrazilMASKS;
-    
-    public currencyNumber: number = 123456;
+  readonly MASKS: any = NgxBrazilMASKS;
+  readonly currencyNumber = signal(123456);
+  readonly currencyDisplay = computed(() =>
+    this.MASKS.utils.numberToString(this.currencyNumber())
+  );
 }
