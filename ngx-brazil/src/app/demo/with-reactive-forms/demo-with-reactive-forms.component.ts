@@ -1,51 +1,74 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  DestroyRef,
+  OnInit,
+  inject
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 
 import { DemoService } from '../demo.service';
 import { NgxBrazilMASKS, NgxBrazilMASKSIE } from 'public_api';
 
 @Component({
-    selector: 'app-with-reactive-forms', templateUrl: './demo-with-reactive-forms.component.html', styleUrls: ['./demo-with-reactive-forms.component.scss'],
-    standalone: false
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-with-reactive-forms',
+  templateUrl: './demo-with-reactive-forms.component.html',
+  styleUrls: ['./demo-with-reactive-forms.component.scss'],
+  standalone: false
 })
 export class DemoWithReactiveFormsComponent implements OnInit {
-  public MASKS: any = NgxBrazilMASKS;
-  public MASKSIE: any = NgxBrazilMASKSIE;
-  
-  public state = 'SP';
+  protected readonly demoService = inject(DemoService);
+  private readonly fb = inject(FormBuilder);
+  private readonly cdr = inject(ChangeDetectorRef);
+  private readonly destroyRef = inject(DestroyRef);
 
-  public formFields: any;
-  public formData: any = {};
-  public formDataValidate: any = {};
-  public form: any;
+  readonly MASKS: any = NgxBrazilMASKS;
+  readonly MASKSIE: any = NgxBrazilMASKSIE;
+  readonly states = this.demoService.states;
 
+  state = 'SP';
+  formFields: any;
+  formData: any = {};
+  formDataValidate: any = {};
+  form?: FormGroup;
+  controls: Record<string, AbstractControl> = {};
   generated: any = {};
-  
-  constructor(public fb: FormBuilder, public demoService: DemoService) { }
 
   ngOnInit(): void {
     this.formFields = this.demoService.buildForm(this.state);
     this.form = this.fb.group(this.formFields);
+    this.controls = this.form.controls;
+    this.watchForm(this.form);
   }
 
-  changeState(e: any) {
-    this.state = this.demoService.changeState(e);
+  changeState(event: Event): void {
+    this.state = this.demoService.changeState(event);
   }
 
-  generate(key: string) {
-    this.generated[key] = this.demoService.generate(key);
+  generate(key: string): void {
+    this.generated = { ...this.generated, [key]: this.demoService.generate(key) };
   }
 
-  submit(form: FormGroup) {
-      if (form.valid) {
-          this.formData = form.value;
-          this.formDataValidate = {};
-          return;
-      }
-      
-      this.demoService.markAllAsTouchedAndDirty(form);
-      this.formDataValidate = this.demoService.collectValidationErrors(form);
+  submit(form: FormGroup): void {
+    if (form.valid) {
+      this.formData = form.value;
+      this.formDataValidate = {};
+      return;
+    }
 
-      this.demoService.focusFirstInvalidControl(form, '.with-reactive-forms input, .with-reactive-forms select, .with-reactive-forms textarea');
+    this.demoService.markAllAsTouchedAndDirty(form);
+    this.formDataValidate = this.demoService.collectValidationErrors(form);
+    this.demoService.focusFirstInvalidControl(
+      form,
+      '.with-reactive-forms input, .with-reactive-forms select, .with-reactive-forms textarea'
+    );
+  }
+
+  private watchForm(form: FormGroup): void {
+    form.statusChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => this.cdr.markForCheck());
+    form.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => this.cdr.markForCheck());
   }
 }

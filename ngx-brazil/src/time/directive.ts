@@ -1,5 +1,5 @@
 import { Directive, forwardRef } from '@angular/core';
-import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
+import { NG_VALIDATORS, Validator, AbstractControl, ValidationErrors } from '@angular/forms';
 import { time } from './validator';
 
 const TIME_VALIDATOR: any = {
@@ -10,12 +10,13 @@ const TIME_VALIDATOR: any = {
 };
 
 @Directive({
+  standalone: true,
   // tslint:disable-next-line:directive-selector
   selector: '[time][formControlName],[time][formControl],[time][ngModel]',
   providers: [TIME_VALIDATOR]
 })
 export class TIMEValidator implements Validator {
-  validate(c: AbstractControl): {[key: string]: any} {
+  validate(c: AbstractControl): ValidationErrors | null {
     return time(c);
   }
 }

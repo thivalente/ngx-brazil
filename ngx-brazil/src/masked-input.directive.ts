@@ -1,13 +1,12 @@
-import { Directive, ElementRef, forwardRef, Input, OnChanges, Provider, SimpleChanges, RendererFactory2, Optional, Inject } from '@angular/core'
+import { Directive, ElementRef, forwardRef, Input, OnChanges, Provider, SimpleChanges, RendererFactory2, inject } from '@angular/core'
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, COMPOSITION_BUFFER_MODE } from '@angular/forms'
-import { ɵgetDOM as getDOM } from '@angular/platform-browser'
 import { createTextMaskInputElement } from './_utils/masks/create-text-mask-input-element';
 import { conformToMask as conformToMaskLocal } from './_utils/masks/conform-to-mask';
 
 export const conformToMask=conformToMaskLocal;
 
 export class TextMaskConfig {
-  mask: Array<string | RegExp> | ((raw: string) => Array<string | RegExp>) | false
+  mask!: Array<string | RegExp> | ((raw: string) => Array<string | RegExp>) | false
   guide?: boolean
   placeholderChar?: string
   pipe?: (conformedValue: string, config: TextMaskConfig) => false | string | object
@@ -27,7 +26,7 @@ export const MASKEDINPUT_VALUE_ACCESSOR: Provider = {
  * behave differently between iOS and Android.
  */
 export function _isAndroid(): boolean {
-  const userAgent = getDOM() ? getDOM().getUserAgent() : ''
+  const userAgent = typeof navigator !== 'undefined' ? navigator.userAgent : ''
   return /android (\d+)/.test(userAgent.toLowerCase())
 }
 
@@ -41,6 +40,7 @@ export function _isAndroid(): boolean {
   /* tslint:disable: directive-selector */
   selector: '[textMask]',
   exportAs: 'textMask',
+  standalone: true,
   providers: [MASKEDINPUT_VALUE_ACCESSOR]
 })
 export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
@@ -53,20 +53,21 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
   }
 
   private textMaskInputElement: any
-  private inputElement: HTMLInputElement
+  private inputElement!: HTMLInputElement
   private _renderer: any;
   /** Whether the user is creating a composition string (IME events). */
   private _composing = false;
 
-  constructor(
-    rendererFactory: RendererFactory2,
-    private _elementRef: ElementRef,
-    @Optional() @Inject(COMPOSITION_BUFFER_MODE) private _compositionMode: boolean
-  ) {
+  private readonly _elementRef = inject(ElementRef);
+  private readonly _compositionModeToken = inject(COMPOSITION_BUFFER_MODE, { optional: true });
+  private _compositionMode: boolean;
+
+  constructor() {
+    const rendererFactory = inject(RendererFactory2);
     this._renderer = rendererFactory.createRenderer(null, null);
-    if (this._compositionMode == null) {
-      this._compositionMode = !_isAndroid()
-    }
+    this._compositionMode = this._compositionModeToken == null
+      ? !_isAndroid()
+      : this._compositionModeToken;
   }
 
   onChange = (_: any) => { }

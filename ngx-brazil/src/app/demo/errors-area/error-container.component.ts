@@ -1,17 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 @Component({
-    selector: 'app-error-container', templateUrl: './error-container.component.html', styleUrls: ['./error-container.component.scss'],
-    standalone: false
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-error-container',
+  templateUrl: './error-container.component.html',
+  styleUrls: ['./error-container.component.scss'],
+  standalone: false
 })
 export class ErrorContainerComponent {
-  @Input() errors: any;
-  @Input() fieldName: string = '';
+  readonly errors = input<any>();
+  readonly fieldName = input('');
 
-  objectKeys(key: any) {
-      if (!key)
-        return [];
-      
-      return Object.keys(key);
-  }
+  protected readonly errorKeys = computed(() => {
+    const err = this.errors();
+    return err ? Object.keys(err) : [];
+  });
 }

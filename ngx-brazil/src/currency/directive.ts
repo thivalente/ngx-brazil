@@ -1,5 +1,5 @@
 import { Directive, forwardRef } from '@angular/core';
-import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
+import { NG_VALIDATORS, Validator, AbstractControl, ValidationErrors } from '@angular/forms';
 import { currency } from './validator';
 
 const CURRENCY_VALIDATOR: any = {
@@ -10,6 +10,7 @@ const CURRENCY_VALIDATOR: any = {
 };
 
 @Directive({
+  standalone: true,
   // tslint:disable-next-line:directive-selector
   selector: '[currency][formControlName],[currency][formControl],[currency][ngModel]',
   providers: [CURRENCY_VALIDATOR]

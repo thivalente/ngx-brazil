@@ -1,5 +1,5 @@
 import { Directive, forwardRef } from '@angular/core';
-import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
+import { NG_VALIDATORS, Validator, AbstractControl, ValidationErrors } from '@angular/forms';
 import { number } from './validator';
 
 const NUMBER_VALIDATOR: any = {
@@ -10,6 +10,7 @@ const NUMBER_VALIDATOR: any = {
 };
 
 @Directive({
+  standalone: true,
   // tslint:disable-next-line:directive-selector
   selector: '[number][formControlName],[number][formControl],[number][ngModel]',
   providers: [NUMBER_VALIDATOR]

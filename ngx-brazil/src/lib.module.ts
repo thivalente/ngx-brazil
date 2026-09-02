@@ -220,6 +220,9 @@ export const NgxBrazilDirectives = {
   exports: [ NgxBrazilCustomDirectives ]
 })
 export class NgxBrazil {
+  /**
+   * @deprecated Use `imports: [NgxBrazil]` diretamente. Será removido no major 23.
+   */
   public static forRoot(): ModuleWithProviders<NgxBrazil> {
     return {
       ngModule: NgxBrazil

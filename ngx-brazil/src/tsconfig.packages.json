@@ -1,7 +1,6 @@
 {
   "extends": "../tsconfig.json",
   "angularCompilerOptions": {
-    "enableIvy": true,
     "mainPath": "./main.ts",
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

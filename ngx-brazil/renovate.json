@@ -28,11 +28,6 @@
       "packagePattern": "^karma.*",
       "groupName": "karma",
       "pinVersions": false
-    },
-    {
-      "packagePattern": "^protractor.*",
-      "groupName": "protractor",
-      "pinVersions": false
     }
   ]
 }

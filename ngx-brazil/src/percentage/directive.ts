@@ -1,5 +1,5 @@
 import { Directive, forwardRef } from '@angular/core';
-import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
+import { NG_VALIDATORS, Validator, AbstractControl, ValidationErrors } from '@angular/forms';
 import { percentage } from './validator';
 
 const PERCENTAGE_VALIDATOR: any = {
@@ -10,6 +10,7 @@ const PERCENTAGE_VALIDATOR: any = {
 };
 
 @Directive({
+  standalone: true,
   // tslint:disable-next-line:directive-selector
   selector: '[percentage][formControlName],[percentage][formControl],[percentage][ngModel]',
   providers: [PERCENTAGE_VALIDATOR]

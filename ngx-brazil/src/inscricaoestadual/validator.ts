@@ -1,10 +1,10 @@
-import { AbstractControl, Validators, ValidatorFn } from '@angular/forms';
+import { AbstractControl, Validators, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { utilsBr } from '../_utils/utils';
 import { validateBr } from '../_utils/validate';
 
 export const inscricaoestadual = (estado: string):
   ValidatorFn => {
-    return (control: AbstractControl): { [key: string]: boolean } => {
+    return (control: AbstractControl): ValidationErrors | null => {
       if (utilsBr.isPresent(Validators.required(control))) {
         return null;
       }
